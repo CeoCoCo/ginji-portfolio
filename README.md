@@ -1,45 +1,43 @@
 # Ginji Portfolio
 
-Trang giới thiệu cá nhân của Ginji (CoCo), viết bằng HTML và CSS.
+Website cá nhân của Ginji (CoCo), viết bằng HTML, CSS và JavaScript thuần. Không cần cài thư viện hoặc build.
 
-## Nội dung
+## Cấu trúc
+
 - `public/index.html`: nội dung trang.
 - `public/styles.css`: giao diện và bố cục responsive.
-- `vercel.json`: cấu hình Vercel, phục vụ thư mục `public`.
+- `public/app.js`: chuyển ngôn ngữ, ánh sao và tương tác khi cuộn.
+- `public/assets/`: ảnh và tài nguyên tĩnh.
+- `.github/workflows/pages.yml`: triển khai trực tiếp lên GitHub Pages.
 
 ## Xem trên máy
-Mở `public/index.html` bằng trình duyệt. Không cần cài thư viện hoặc build.
 
-## Triển khai trên Vercel
-Import repository `CeoCoCo/ginji-portfolio` vào Vercel.
-- Framework Preset: Other.
-- Root Directory: gốc repository.
-- Output Directory: public (đã khai báo trong vercel.json).
-- Build Command và Install Command: để trống.
+Mở `public/index.html` trong trình duyệt, hoặc phục vụ thư mục `public` bằng HTTP server tĩnh.
 
-## Tự chỉnh sửa bằng PowerShell
-Cài Git for Windows trước, sau đó chạy từng dòng:
+Kiểm tra cú pháp JavaScript nếu có Node.js:
 
-```powershell
-git clone https://github.com/CeoCoCo/ginji-portfolio.git
-cd ginji-portfolio
-Start-Process .\public\index.html
+```sh
+node --check public/app.js
 ```
 
-Sau khi sửa file và lưu, cấu hình danh tính Git cho dự án (một lần; thay tên và email):
+## GitHub Pages
 
-```powershell
-git config user.name "Tên của bạn"
-git config user.email "Email GitHub hoặc email noreply của bạn"
-```
+URL mặc định dự kiến: https://ceococo.github.io/ginji-portfolio/
 
-Lưu thay đổi rồi gửi lên GitHub:
+Thiết lập một lần tại repository `CeoCoCo/ginji-portfolio`:
 
-```powershell
-git status
-git add .
-git commit -m "Update profile"
-git push
-```
+1. Mở **Settings → Pages → Build and deployment**.
+2. Chọn **Source: GitHub Actions**.
+3. Push workflow lên nhánh `main`. Xem tiến trình tại **Actions → Deploy to GitHub Pages**; có thể chạy lại bằng **Run workflow**.
 
-Nếu đã liên kết Vercel với GitHub, thay đổi trên nhánh main sẽ kích hoạt triển khai mới.
+Workflow kiểm tra cú pháp JavaScript, đóng gói riêng thư mục `public` và triển khai bằng các GitHub Pages actions chính thức. Không có bước build, dependency bên ngoài hay token triển khai thủ công; dùng `GITHUB_TOKEN` của workflow.
+
+CSS, JavaScript và ảnh dùng đường dẫn tương đối (`styles.css`, `app.js`, `assets/...`) nên hoạt động dưới `/ginji-portfolio/`. Khi thêm asset, tránh đường dẫn bắt đầu bằng `/` vì nó trỏ tới gốc tên miền thay vì thư mục repository.
+
+Mỗi lần push lên `main` sẽ cập nhật website. Chờ workflow thành công trước khi kiểm tra bản mới.
+
+## Ngắt nền tảng triển khai cũ
+
+Nếu project vẫn được liên kết với Vercel, mở project đó tại **Settings → Git** và ngắt kết nối repository. Xóa cấu hình trong repository không tự ngắt Git integration ở dịch vụ bên ngoài. Không cần xóa project hay deployment cũ để dùng GitHub Pages.
+
+Luồng triển khai của repository này: **GitHub → GitHub Actions → GitHub Pages**.
