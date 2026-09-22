@@ -1,20 +1,100 @@
 <!doctype html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ginji — Một góc nhỏ của mình</title>
-<meta name="description" content="Ginji (CoCo) — sinh viên Luật, thích game, âm nhạc và những ngày trời âm u. Một góc nhỏ để bạn biết thêm về mình.">
-<meta name="theme-color" content="#f2f9ff">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23394473'/%3E%3Ctext x='20' y='29' text-anchor='middle' font-family='Arial' font-size='29' font-weight='700' fill='%23bdeeff'%3Eg%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ginji — Một góc nhỏ của mình</title>
+  <meta name="description" content="Ginji (CoCo) — sinh viên Luật, thích game, âm nhạc và những ngày trời âm u. Một góc nhỏ để bạn biết thêm về mình.">
+  <meta name="theme-color" content="#f2f9ff">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23394473'/%3E%3Ctext x='20' y='29' text-anchor='middle' font-family='Arial' font-size='29' font-weight='700' fill='%23bdeeff'%3Eg%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
-<body id="top"><div class="starlight" aria-hidden="true"><span class="star" style="--x:5%;--y:3%;--size:8px;--delay:0s">✧</span><span class="star" style="--x:42%;--y:32%;--size:12px;--delay:0.11s">✦</span><span class="star" style="--x:79%;--y:61%;--size:16px;--delay:0.22s">✦</span><span class="star" style="--x:16%;--y:90%;--size:20px;--delay:0.33s">✧</span><span class="star" style="--x:53%;--y:19%;--size:24px;--delay:0.44s">✦</span><span class="star" style="--x:90%;--y:48%;--size:8px;--delay:0.55s">✦</span><span class="star" style="--x:27%;--y:77%;--size:12px;--delay:0.66s">✧</span><span class="star" style="--x:64%;--y:6%;--size:16px;--delay:0s">✦</span><span class="star" style="--x:1%;--y:35%;--size:20px;--delay:0.11s">✦</span><span class="star" style="--x:38%;--y:64%;--size:24px;--delay:0.22s">✧</span><span class="star" style="--x:75%;--y:93%;--size:8px;--delay:0.33s">✦</span><span class="star" style="--x:12%;--y:22%;--size:12px;--delay:0.44s">✦</span><span class="star" style="--x:49%;--y:51%;--size:16px;--delay:0.55s">✧</span><span class="star" style="--x:86%;--y:80%;--size:20px;--delay:0.66s">✦</span><span class="star" style="--x:23%;--y:9%;--size:24px;--delay:0s">✦</span><span class="star" style="--x:60%;--y:38%;--size:8px;--delay:0.11s">✧</span><span class="star" style="--x:97%;--y:67%;--size:12px;--delay:0.22s">✦</span><span class="star" style="--x:34%;--y:96%;--size:16px;--delay:0.33s">✦</span><span class="star" style="--x:71%;--y:25%;--size:20px;--delay:0.44s">✧</span><span class="star" style="--x:8%;--y:54%;--size:24px;--delay:0.55s">✦</span><span class="star" style="--x:45%;--y:83%;--size:8px;--delay:0.66s">✦</span><span class="star" style="--x:82%;--y:12%;--size:12px;--delay:0s">✧</span><span class="star" style="--x:19%;--y:41%;--size:16px;--delay:0.11s">✦</span><span class="star" style="--x:56%;--y:70%;--size:20px;--delay:0.22s">✦</span><span class="star" style="--x:93%;--y:99%;--size:24px;--delay:0.33s">✧</span><span class="star" style="--x:30%;--y:28%;--size:8px;--delay:0.44s">✦</span><span class="star" style="--x:67%;--y:57%;--size:12px;--delay:0.55s">✦</span><span class="star" style="--x:4%;--y:86%;--size:16px;--delay:0.66s">✧</span><span class="star" style="--x:41%;--y:15%;--size:20px;--delay:0s">✦</span><span class="star" style="--x:78%;--y:44%;--size:24px;--delay:0.11s">✦</span><span class="star" style="--x:15%;--y:73%;--size:8px;--delay:0.22s">✧</span><span class="star" style="--x:52%;--y:2%;--size:12px;--delay:0.33s">✦</span><span class="meteor" style="--x:12%;--y:5%;--delay:0.2s"></span><span class="meteor" style="--x:42%;--y:20%;--delay:0.8500000000000001s"></span><span class="meteor" style="--x:72%;--y:35%;--delay:1.5s"></span></div><div class="wrap">
-<header><nav aria-label="Điều hướng chính"><a class="brand" href="#top" aria-label="Ginji — đầu trang">ginji<span>.</span></a><div class="navlinks"><a href="#about">Về mình</a><a href="#interests">Sở thích</a><a href="#hello">Chào một câu</a></div></nav></header>
-<main>
-<div class="hero"><div><p class="eyebrow">Một góc nhỏ của mình</p><p class="intro">Hey, mình là</p><h1>Ginji<span>.</span></h1><p class="lead">Một sinh viên Luật, một chiếc cáo hơi rụt rè, và một người thích những ngày trời âm u.</p><a class="button" href="#about">Làm quen một chút <span aria-hidden="true">↗</span></a></div><div class="identity" aria-label="Thẻ tên Ginji, còn gọi là CoCo"><div class="top">JUST A LITTLE INTROVERT</div><div class="monogram" aria-hidden="true">g.</div><div class="identity-bottom"><div><strong>Ginji</strong><br><small>aka CoCo / Ceo</small></div><span>Kitsune spirit</span></div></div></div>
-<div class="strip"><span><i aria-hidden="true">✳</i> Sinh viên Luật</span><span><i aria-hidden="true">✳</i> Game & âm nhạc</span><span><i aria-hidden="true">✳</i> Một chút tiếng Nhật</span><span><i aria-hidden="true">✳</i> Furry / Kitsune</span></div>
-<section id="about" class="section-grid"><h2 class="section-title"><span>01</span> VỀ MÌNH</h2><div class="about"><h2>Hơi ít nói lúc đầu.<br><em>Thân rồi thì… để xem.</em></h2><p>Bạn có thể gọi mình là Ginji, CoCo hoặc Ceo. Hiện tại mình đang học Luật, còn ngoài giờ học thì thường tìm đến game, âm nhạc và những khoảng thời gian được thảnh thơi một chút.</p><p>Mình khá dễ tính, chỉ hơi thụ động khi bắt chuyện thôi. Nếu muốn làm quen, cứ chủ động chào mình nhé.</p><div class="tags"><span class="tag">Friendly, but shy</span><span class="tag">Chill weather enjoyer</span><span class="tag">日本語を勉強中</span></div></div></section>
-<section id="interests" class="interests"><div class="interests-head"><h2>Mấy điều mình thích.</h2><p class="section-title"><span>02</span> NGOÀI GIỜ HỌC</p></div><div class="cards"><article class="card"><span class="symbol" aria-hidden="true">↗</span><h3>Thêm một ván nữa.</h3><p>Từ game âm nhạc đến những trận Guilty Gear Strive. Đôi khi chơi để thử thách bản thân, đôi khi chỉ để chill.</p><small>Games / Anji Mito</small></article><article class="card"><span class="symbol" aria-hidden="true">♫</span><h3>Nhạc hay, trời âm u.</h3><p>Một playlist hợp tâm trạng và thời tiết hơi xám một chút. Vậy là đủ cho một khoảng nghỉ mình thích.</p><small>Music / Slow moments</small></article><article class="card"><span class="symbol" aria-hidden="true">あ</span><h3>Từng chút tiếng Nhật.</h3><p>Học thêm vài từ, hiểu thêm một câu. Mình thích cảm giác dần chạm đến một ngôn ngữ khác.</p><small>Language / Small steps</small></article></div></section>
-<section id="hello" class="hello"><div><p class="section-title"><span>03</span> MỘT LỜI CHÀO</p><h2>Đừng ngại nói <span>hi.</span></h2><p>Nếu bạn cũng thích game, âm nhạc hay chỉ muốn trò chuyện một chút, có lẽ chúng mình sẽ có chuyện để kể.</p></div><p class="note">Mình có thể hơi chậm mở lời.<br>Nhưng rất vui khi bạn ghé qua.</p></section>
-</main><footer><span>Ginji / CoCo — Cứ thoải mái là mình.</span><a href="#top">Lên đầu trang ↑</a></footer>
-</div></body></html>
+<body id="top">
+  <a class="skip-link" href="#main" data-i18n="skip">Đến nội dung chính</a>
+  <div class="starlight" aria-hidden="true"><canvas id="star-canvas"></canvas><div id="welcome-stars"></div></div>
+  <header class="site-header glass">
+    <nav class="navigation" aria-label="Điều hướng chính" data-i18n-aria="navigation">
+      <a class="brand" href="#top" aria-label="Ginji — đầu trang" data-i18n-aria="home">ginji<span>.</span></a>
+      <div class="navlinks">
+        <a href="#about" lang="en">About me</a>
+        <a href="#fursona" lang="en">Fursona</a>
+        <a href="#gallery" lang="en">Gallery</a>
+      </div>
+      <div class="nav-controls">
+        <button class="motion-toggle" type="button" aria-label="Tạm dừng ánh sao" aria-pressed="false" title="Tạm dừng ánh sao" hidden><span aria-hidden="true">✧</span></button>
+        <button class="language-toggle" type="button" role="switch" aria-checked="false" aria-label="Hiển thị bằng tiếng Anh" title="Switch to English" hidden><span class="toggle-thumb" aria-hidden="true"></span><span lang="vi" aria-hidden="true">VI</span><span lang="en" aria-hidden="true">EN</span></button>
+      </div>
+    </nav>
+  </header>
+  <div class="wrap">
+    <main id="main">
+      <div class="hero">
+        <div>
+          <p class="eyebrow" data-i18n="heroEyebrow">Một góc nhỏ của mình</p>
+          <p class="intro" data-i18n="heroIntro">Hey, mình là</p>
+          <h1>Ginji<span>.</span></h1>
+          <p class="lead" data-i18n="heroLead">Một sinh viên Luật, một chiếc cáo hơi rụt rè, và một người thích những ngày trời âm u.</p>
+          <a class="button" href="#about"><span data-i18n="heroButton">Làm quen một chút</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="identity" aria-label="Thẻ tên Ginji, còn gọi là CoCo" data-i18n-aria="identity">
+          <div class="top" data-i18n="identityTop">JUST A LITTLE INTROVERT</div>
+          <div class="monogram" aria-hidden="true">g.</div>
+          <div class="identity-bottom"><div><strong>Ginji</strong><br><small data-i18n="identityAlias">aka CoCo / Ceo</small></div><span lang="en">Kitsune spirit</span></div>
+        </div>
+      </div>
+      <div class="strip">
+        <span><i aria-hidden="true">✳</i><span data-i18n="stripLaw">Sinh viên Luật</span></span>
+        <span><i aria-hidden="true">✳</i><span data-i18n="stripGames">Game & âm nhạc</span></span>
+        <span><i aria-hidden="true">✳</i><span data-i18n="stripJapanese">Một chút tiếng Nhật</span></span>
+        <span><i aria-hidden="true">✳</i><span>Furry / Kitsune</span></span>
+      </div>
+      <section id="about" class="about-section" aria-labelledby="about-title">
+        <div class="section-grid">
+          <h2 class="section-title" id="about-title"><span class="section-number">01</span><span data-i18n="aboutLabel">VỀ MÌNH</span></h2>
+          <div class="about">
+            <h3><span data-i18n="aboutHeadline1">Hơi ít nói lúc đầu.</span><br><em data-i18n="aboutHeadline2">Thân rồi thì… để xem.</em></h3>
+            <p data-i18n="aboutP1">Bạn có thể gọi mình là Ginji, CoCo hoặc Ceo. Hiện tại mình đang học Luật, còn ngoài giờ học thì thường tìm đến game, âm nhạc và những khoảng thời gian được thảnh thơi một chút.</p>
+            <p data-i18n="aboutP2">Mình khá dễ tính, chỉ hơi thụ động khi bắt chuyện thôi. Nếu muốn làm quen, cứ chủ động chào mình nhé.</p>
+            <div class="tags"><span class="tag" data-i18n="tagShy">Thân thiện, hơi rụt rè</span><span class="tag" data-i18n="tagWeather">Thích trời âm u</span><span class="tag" data-i18n="tagJapanese">Đang học tiếng Nhật</span></div>
+          </div>
+        </div>
+        <div class="interests">
+          <div class="interests-head"><h3 data-i18n="interestsTitle">Mấy điều mình thích.</h3><p class="section-title" data-i18n="interestsLabel">NGOÀI GIỜ HỌC</p></div>
+          <div class="cards">
+            <article class="card"><span class="symbol" aria-hidden="true">↗</span><h4 data-i18n="gameTitle">Thêm một ván nữa.</h4><p data-i18n="gameText">Từ game âm nhạc đến những trận Guilty Gear Strive. Đôi khi chơi để thử thách bản thân, đôi khi chỉ để chill.</p><small data-i18n="gameMeta">Game / Anji Mito</small></article>
+            <article class="card"><span class="symbol" aria-hidden="true">♫</span><h4 data-i18n="musicTitle">Nhạc hay, trời âm u.</h4><p data-i18n="musicText">Một playlist hợp tâm trạng và thời tiết hơi xám một chút. Vậy là đủ cho một khoảng nghỉ mình thích.</p><small data-i18n="musicMeta">Âm nhạc / Những phút thảnh thơi</small></article>
+            <article class="card"><span class="symbol" aria-hidden="true">あ</span><h4 data-i18n="japaneseTitle">Từng chút tiếng Nhật.</h4><p data-i18n="japaneseText">Học thêm vài từ, hiểu thêm một câu. Mình thích cảm giác dần chạm đến một ngôn ngữ khác.</p><small data-i18n="japaneseMeta">Ngôn ngữ / Từng bước nhỏ</small></article>
+          </div>
+        </div>
+      </section>
+      <section id="fursona" class="fursona-section" aria-labelledby="fursona-title">
+        <div class="section-grid">
+          <h2 class="section-title" id="fursona-title"><span class="section-number">02</span>FURSONA</h2>
+          <div class="about"><h3 data-i18n="fursonaHeadline">Ginji, phiên bản kitsune.</h3><p data-i18n="fursonaText">Một chiếc cáo với bộ lông trắng, những mảng xanh băng và điểm nhấn tím chàm. Ginji thường xuất hiện với hai chiếc đuôi — một phiên bản khác của mình trong thế giới furry.</p><div class="tags"><span class="tag">Kitsune</span><span class="tag" data-i18n="fursonaTails">Thường xuất hiện với 2 đuôi</span><span class="tag" data-i18n="fursonaMood">Chill & hơi rụt rè</span></div></div>
+        </div>
+        <div class="palette" aria-label="Bảng màu của Ginji" data-i18n-aria="paletteLabel">
+          <div class="palette-chip"><span class="swatch" style="--swatch:#ffffff"></span><span data-i18n="snow">Trắng tuyết</span><code>#FFFFFF</code></div>
+          <div class="palette-chip"><span class="swatch" style="--swatch:#bdeeff"></span><span data-i18n="ice">Xanh băng</span><code>#BDEEFF</code></div>
+          <div class="palette-chip"><span class="swatch" style="--swatch:#a3c3d5"></span><span data-i18n="blueGrey">Xanh xám</span><code>#A3C3D5</code></div>
+          <div class="palette-chip"><span class="swatch" style="--swatch:#394473"></span><span data-i18n="indigo">Tím chàm</span><code>#394473</code></div>
+          <div class="palette-chip"><span class="swatch" style="--swatch:#a3a2de"></span><span data-i18n="lavender">Tím nhạt</span><code>#A3A2DE</code></div>
+        </div>
+      </section>
+      <section id="gallery" class="gallery-section" aria-labelledby="gallery-title">
+        <div class="interests-head"><h2 id="gallery-title" data-i18n="galleryTitle">Một chút về thế giới của Ginji.</h2><p class="section-title"><span class="section-number">03</span>GALLERY</p></div>
+        <figure class="gallery-item">
+          <a class="gallery-image-link" href="assets/ginji-refsheet.png" target="_blank" rel="noopener" aria-label="Mở refsheet Ginji đầy đủ trong tab mới" data-i18n-aria="galleryOpen"><img src="assets/ginji-refsheet.png" width="2048" height="1502" loading="lazy" decoding="async" alt="Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế." data-i18n-alt="galleryAlt"></a>
+          <figcaption><div><strong>Ginji</strong><span data-i18n="galleryCaption">Refsheet nhân vật</span></div><a href="assets/ginji-refsheet.png" target="_blank" rel="noopener"><span data-i18n="galleryView">Xem ảnh đầy đủ</span><span aria-hidden="true">↗</span></a></figcaption>
+        </figure>
+      </section>
+      <section class="hello" aria-labelledby="hello-title">
+        <div><p class="section-title" data-i18n="helloLabel">MỘT LỜI CHÀO</p><h2 id="hello-title"><span data-i18n="helloHeadline">Đừng ngại nói</span> <em>hi.</em></h2><p data-i18n="helloText">Nếu bạn cũng thích game, âm nhạc hay chỉ muốn trò chuyện một chút, có lẽ chúng mình sẽ có chuyện để kể.</p></div><p class="note" data-i18n="helloNote">Mình có thể hơi chậm mở lời. Nhưng rất vui khi bạn ghé qua.</p>
+      </section>
+    </main>
+    <footer><span data-i18n="footer">Ginji / CoCo — Cứ thoải mái là mình.</span><a href="#top" data-i18n="footerTop">Lên đầu trang ↑</a></footer>
+  </div>
+  <a class="back-to-top glass" href="#top" aria-label="Về đầu trang" title="Về đầu trang" data-i18n-aria="backToTop" tabindex="-1" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></a>
+  <div class="sr-only" id="language-announcement" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
