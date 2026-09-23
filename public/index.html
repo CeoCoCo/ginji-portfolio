@@ -11,6 +11,12 @@
   <script src="app.js" defer></script>
 </head>
 <body id="top">
+  <dialog class="entry-screen" aria-label="Chào mừng đến với Ginji" data-i18n-aria="entryWelcome" hidden>
+    <button class="entry-button" type="button" aria-label="TAP HERE — Vào trang của Ginji" data-i18n-aria="entryEnter" autofocus>
+      <span class="entry-art"><img src="assets/ginji-entry.png" width="2000" height="2000" alt="Ginji" fetchpriority="high" decoding="async"></span>
+      <span class="entry-label" lang="en" aria-hidden="true">TAP HERE</span>
+    </button>
+  </dialog>
   <a class="skip-link" href="#main" data-i18n="skip">Đến nội dung chính</a>
   <div class="starlight" aria-hidden="true"><canvas id="star-canvas"></canvas><div id="welcome-stars"></div></div>
   <header class="site-header glass">
@@ -22,7 +28,6 @@
         <a href="#gallery" lang="en">Gallery</a>
       </div>
       <div class="nav-controls">
-        <button class="motion-toggle" type="button" aria-label="Tạm dừng ánh sao" aria-pressed="false" title="Tạm dừng ánh sao" hidden><span aria-hidden="true">✧</span></button>
         <button class="language-toggle" type="button" role="switch" aria-checked="false" aria-label="Hiển thị bằng tiếng Anh" title="Switch to English" hidden><span class="toggle-thumb" aria-hidden="true"></span><span lang="vi" aria-hidden="true">VI</span><span lang="en" aria-hidden="true">EN</span></button>
       </div>
     </nav>

@@ -29,7 +29,7 @@
       helloNote: 'Mình có thể hơi chậm mở lời. Nhưng rất vui khi bạn ghé qua.',
       footer: 'Ginji / CoCo — Cứ thoải mái là mình.', footerTop: 'Lên đầu trang ↑', backToTop: 'Về đầu trang',
       languageLabel: 'Hiển thị bằng tiếng Anh', languageHint: 'Switch to English', languageAnnouncement: 'Đã chuyển sang tiếng Việt.',
-      pauseStars: 'Tạm dừng ánh sao', resumeStars: 'Tiếp tục ánh sao', motionLabel: 'Tạm dừng ánh sao'
+      entryWelcome: 'Chào mừng đến với Ginji', entryEnter: 'TAP HERE — Vào trang của Ginji'
     },
     en: {
       title: 'Ginji — A little corner of mine',
@@ -59,26 +59,20 @@
       helloNote: 'I might be slow to say the first word. But I’m glad you stopped by.',
       footer: 'Ginji / CoCo — Just being me.', footerTop: 'Back to top ↑', backToTop: 'Back to top',
       languageLabel: 'Display in English', languageHint: 'Chuyển sang tiếng Việt', languageAnnouncement: 'Switched to English.',
-      pauseStars: 'Pause starlight', resumeStars: 'Resume starlight', motionLabel: 'Pause starlight'
+      entryWelcome: 'Welcome to Ginji', entryEnter: 'TAP HERE — Enter Ginji’s website'
     }
   };
   const languageToggle = document.querySelector('.language-toggle');
-  const motionToggle = document.querySelector('.motion-toggle');
+  const entryScreen = document.querySelector('.entry-screen');
+  const entryButton = document.querySelector('.entry-button');
   const backToTop = document.querySelector('.back-to-top');
   const header = document.querySelector('.site-header');
   const hero = document.querySelector('.hero');
   const starLayer = document.querySelector('.starlight');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let currentLanguage = 'vi';
-  let userPaused = false;
   const readPreference = key => { try { return localStorage.getItem(key); } catch { return null; } };
   const savePreference = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Private browsing may block storage. */ } };
-  userPaused = readPreference('ginji-stars-paused') === 'true';
-  function updateMotionLabel() {
-    motionToggle.setAttribute('aria-pressed', String(userPaused));
-    motionToggle.setAttribute('aria-label', copy[currentLanguage].motionLabel);
-    motionToggle.title = copy[currentLanguage][userPaused ? 'resumeStars' : 'pauseStars'];
-  }
   function applyLanguage(lang, announce = false) {
     currentLanguage = lang === 'en' ? 'en' : 'vi';
     const text = copy[currentLanguage];
@@ -92,7 +86,6 @@
     languageToggle.setAttribute('aria-label', text.languageLabel);
     languageToggle.title = text.languageHint;
     backToTop.title = text.backToTop;
-    updateMotionLabel();
     if (announce) document.getElementById('language-announcement').textContent = text.languageAnnouncement;
     scheduleScrollUpdate();
   }
@@ -141,6 +134,40 @@
   applyLanguage(initialLanguage);
   languageToggle.hidden = false;
 
+  // Native modal keeps the loaded page inert and confines keyboard focus.
+  // Without JavaScript (or dialog support), the ordinary website stays accessible.
+  let entryClosing = false, entryTimer;
+  function finishEntry() {
+    window.clearTimeout(entryTimer);
+    if (!entryScreen.open) return;
+    entryScreen.close();
+    entryScreen.hidden = true;
+    document.documentElement.classList.remove('entry-open');
+    document.querySelector('.brand').focus({ preventScroll: true });
+    scheduleScrollUpdate();
+  }
+  function dismissEntry() {
+    if (entryClosing) return;
+    entryClosing = true;
+    if (reducedMotion.matches) { finishEntry(); return; }
+    entryScreen.classList.add('is-leaving');
+    // Fallback also releases the modal if transitionend is interrupted.
+    entryTimer = window.setTimeout(finishEntry, 700);
+  }
+  entryButton.addEventListener('click', dismissEntry);
+  entryScreen.addEventListener('cancel', event => { event.preventDefault(); dismissEntry(); });
+  entryScreen.addEventListener('transitionend', event => {
+    if (event.target === entryScreen && event.propertyName === 'opacity' && entryClosing) finishEntry();
+  });
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches && entryClosing) finishEntry();
+  });
+  if (typeof entryScreen.showModal === 'function') {
+    entryScreen.hidden = false;
+    entryScreen.showModal();
+    document.documentElement.classList.add('entry-open');
+  }
+
   // Retain the initial sparkle and shooting-star entrance from the previous design.
   const welcome = document.getElementById('welcome-stars');
   const introFragment = document.createDocumentFragment();
@@ -156,12 +183,21 @@
     introFragment.append(meteor);
   }
   welcome.append(introFragment);
-  document.body.classList.toggle('motion-paused', userPaused || reducedMotion.matches);
+  let welcomeTimer;
+  function startWelcome() {
+    window.clearTimeout(welcomeTimer);
+    if (reducedMotion.matches) welcome.hidden = true;
+    else welcomeTimer = window.setTimeout(() => { welcome.hidden = true; }, 4500);
+  }
+  entryScreen.addEventListener('close', startWelcome, { once: true });
+  if (!entryScreen.open) startWelcome();
 
   const canvas = document.getElementById('star-canvas');
   const ctx = canvas.getContext('2d');
   if (!ctx) { scheduleScrollUpdate(); return; }
-  let width = 0, height = 0, stars = [], raf = null, lastFrame = 0, elapsed = 0;
+  let width = 0, height = 0, stars = [], raf = null, lastFrame = null, elapsed = 0;
+  // Reuse coordinates instead of allocating objects for every star/trail segment.
+  const position = { x: 0, y: 0 }, trailPosition = { x: 0, y: 0 };
   const random = (min, max) => min + Math.random() * (max - min);
   function makeStar() {
     const startX = random(-.1, 1.1), drift = random(-.25, .25);
@@ -176,28 +212,30 @@
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     const count = width < 760 ? 58 : 108;
     if (stars.length !== count) stars = Array.from({ length: count }, makeStar);
-    if (reducedMotion.matches || userPaused) drawFrame();
+    if (reducedMotion.matches || entryScreen.open) drawFrame();
   }
   // Cubic Bézier trajectories give each star a gentle sideways arc as it falls.
-  function point(star, t) {
+  function point(star, t, out) {
     const u = 1 - t;
-    return { x: (u*u*u*star.x0 + 3*u*u*t*star.x1 + 3*u*t*t*star.x2 + t*t*t*star.x3) * width,
-      y: (u*u*u*(-.12) + 3*u*u*t*.12 + 3*u*t*t*.66 + t*t*t*1.12) * height };
+    out.x = (u*u*u*star.x0 + 3*u*u*t*star.x1 + 3*u*t*t*star.x2 + t*t*t*star.x3) * width;
+    out.y = (u*u*u*(-.12) + 3*u*u*t*.12 + 3*u*t*t*.66 + t*t*t*1.12) * height;
   }
   function drawFrame() {
     ctx.clearRect(0, 0, width, height);
     const entry = reducedMotion.matches ? .7 : Math.min(1, .35 + elapsed / 4500);
     for (const star of stars) {
       const t = (elapsed / star.duration + star.phase) % 1;
-      const p = point(star, t), edge = Math.min(1, t * 9, (1 - t) * 9);
+      point(star, t, position);
+      const p = position, edge = Math.min(1, t * 9, (1 - t) * 9);
       const alpha = star.alpha * edge * (.72 + .28 * Math.sin(elapsed / 2100 + star.phase * 7)) * entry;
       ctx.strokeStyle = star.colour; ctx.fillStyle = star.colour;
       if (star.trail && !reducedMotion.matches) {
+        let previousX = p.x, previousY = p.y;
         for (let j = 1; j <= 9; j++) {
-          const p0 = point(star, Math.max(0, t - j * .004));
-          const p1 = point(star, Math.max(0, t - (j - 1) * .004));
+          point(star, Math.max(0, t - j * .004), trailPosition);
           ctx.globalAlpha = alpha * (1 - j / 10) * .45; ctx.lineWidth = .65;
-          ctx.beginPath(); ctx.moveTo(p0.x, p0.y); ctx.lineTo(p1.x, p1.y); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(trailPosition.x, trailPosition.y); ctx.lineTo(previousX, previousY); ctx.stroke();
+          previousX = trailPosition.x; previousY = trailPosition.y;
         }
       }
       ctx.globalAlpha = alpha; const size = star.size;
@@ -210,31 +248,24 @@
   }
   function animate(now) {
     raf = null;
-    if (document.hidden || reducedMotion.matches || userPaused) return;
-    // Cap work at ~30fps; decorative effects do not need a full refresh-rate loop.
-    if (!lastFrame || now - lastFrame >= 1000 / 30) {
-      elapsed += lastFrame ? Math.min(now - lastFrame, 70) : 0;
-      lastFrame = now; drawFrame();
-    }
+    if (document.hidden || reducedMotion.matches || entryScreen.open) return;
+    // Milliseconds, not frame counts: identical speed at any display refresh rate.
+    if (lastFrame !== null) elapsed += now - lastFrame;
+    lastFrame = now;
+    drawFrame();
     raf = requestAnimationFrame(animate);
   }
   function syncMotion() {
     if (raf !== null) cancelAnimationFrame(raf);
-    raf = null; lastFrame = 0;
-    document.body.classList.toggle('motion-paused', userPaused || reducedMotion.matches);
-    updateMotionLabel();
+    raf = null; lastFrame = null;
     if (reducedMotion.matches) welcome.hidden = true;
-    motionToggle.hidden = reducedMotion.matches;
     drawFrame();
-    if (!document.hidden && !reducedMotion.matches && !userPaused) raf = requestAnimationFrame(animate);
+    if (!document.hidden && !reducedMotion.matches && !entryScreen.open) raf = requestAnimationFrame(animate);
   }
-  motionToggle.addEventListener('click', () => {
-    userPaused = !userPaused; savePreference('ginji-stars-paused', String(userPaused)); syncMotion();
-  });
+  entryScreen.addEventListener('close', syncMotion);
   document.addEventListener('visibilitychange', syncMotion);
   reducedMotion.addEventListener('change', syncMotion);
   window.addEventListener('resize', resizeCanvas, { passive: true });
   resizeCanvas(); syncMotion();
-  window.setTimeout(() => { welcome.hidden = true; }, 4500);
   scheduleScrollUpdate();
 })();
