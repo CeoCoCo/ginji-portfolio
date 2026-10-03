@@ -2,14 +2,12 @@
   'use strict';
   const copy = {
     vi: {
-      title: 'Ginji — Một góc nhỏ của mình',
-      description: 'Ginji (CoCo) — sinh viên Luật, thích game, âm nhạc và những ngày trời âm u. Một góc nhỏ để bạn biết thêm về mình.',
+      description: 'Ginji (CoCo) — sinh viên Luật, thích game, âm nhạc và những ngày trời âm u.',
       skip: 'Đến nội dung chính', navigation: 'Điều hướng chính', home: 'Ginji — đầu trang',
-      heroEyebrow: 'Một góc nhỏ của mình', heroIntro: 'Hey, mình là',
-      heroLead: 'Một sinh viên Luật, một chiếc cáo hơi rụt rè, và một người thích những ngày trời âm u.',
-      heroButton: 'Làm quen một chút', identity: 'Thẻ tên Ginji, còn gọi là CoCo',
-      identityTop: 'JUST A LITTLE INTROVERT', identityAlias: 'aka CoCo / Ceo',
-      stripLaw: 'Sinh viên Luật', stripGames: 'Game & âm nhạc', stripJapanese: 'Một chút tiếng Nhật',
+      heroLead: 'Hewwooo, mình là Ginji. Một “con céo” chill chill thích đi ngẩu. Chào mừng bạn đến với profile của mình nheee~',
+      heroButton: 'Làm quen một chút',
+      navOverview: 'Tổng quan', navAbout: 'Về mình', navFursona: 'Fursona', navGallery: 'Thư viện',
+      introAlt: 'Ginji, chiếc cáo trắng xanh với nụ cười tinh nghịch.', socialNav: 'Mạng xã hội', newTab: 'mở trong tab mới', fursonaLabel: 'FURSONA', galleryLabel: 'THƯ VIỆN',
       aboutLabel: 'VỀ MÌNH', aboutHeadline1: 'Hơi ít nói lúc đầu.', aboutHeadline2: 'Thân rồi thì… để xem.',
       aboutP1: 'Bạn có thể gọi mình là Ginji, CoCo hoặc Ceo. Hiện tại mình đang học Luật, còn ngoài giờ học thì thường tìm đến game, âm nhạc và những khoảng thời gian được thảnh thơi một chút.',
       aboutP2: 'Mình khá dễ tính, chỉ hơi thụ động khi bắt chuyện thôi. Nếu muốn làm quen, cứ chủ động chào mình nhé.',
@@ -29,17 +27,14 @@
       helloNote: 'Mình có thể hơi chậm mở lời. Nhưng rất vui khi bạn ghé qua.',
       footer: 'Ginji / CoCo — Cứ thoải mái là mình.', footerTop: 'Lên đầu trang ↑', backToTop: 'Về đầu trang',
       languageLabel: 'Hiển thị bằng tiếng Anh', languageHint: 'Switch to English', languageAnnouncement: 'Đã chuyển sang tiếng Việt.',
-      entryWelcome: 'Chào mừng đến với Ginji', entryEnter: 'TAP HERE — Vào trang của Ginji'
     },
     en: {
-      title: 'Ginji — A little corner of mine',
-      description: 'Ginji (CoCo) — a law student into games, music and cloudy days. A little corner to get to know me.',
+      description: 'Ginji (CoCo) — a law student into games, music and cloudy days.',
       skip: 'Skip to main content', navigation: 'Main navigation', home: 'Ginji — back to top',
-      heroEyebrow: 'A little corner of mine', heroIntro: 'Hey, I’m',
-      heroLead: 'A law student, a slightly shy fox, and someone with a soft spot for cloudy days.',
-      heroButton: 'Get to know me', identity: 'Ginji’s name card, also known as CoCo',
-      identityTop: 'JUST A LITTLE INTROVERT', identityAlias: 'aka CoCo / Ceo',
-      stripLaw: 'Law student', stripGames: 'Games & music', stripJapanese: 'A little Japanese',
+      heroLead: 'Hewwooo, I’m Ginji — a chill lil fox who loves wandering around. Welcome to my profileee~',
+      heroButton: 'Get to know me',
+      navOverview: 'Overview', navAbout: 'About Me', navFursona: 'Fursona', navGallery: 'Gallery',
+      introAlt: 'Ginji, a white and blue fox with a playful smile.', socialNav: 'Social links', newTab: 'opens in a new tab', fursonaLabel: 'FURSONA', galleryLabel: 'GALLERY',
       aboutLabel: 'ABOUT ME', aboutHeadline1: 'A little quiet at first.', aboutHeadline2: 'Once we’re friends… we’ll see.',
       aboutP1: 'You can call me Ginji, CoCo or Ceo. I’m currently studying law. Outside of class, you’ll usually find me playing games, listening to music or just taking things slow.',
       aboutP2: 'I’m pretty easygoing, just not always the first to start a conversation. Feel free to say hi if you’d like to get to know me.',
@@ -59,29 +54,28 @@
       helloNote: 'I might be slow to say the first word. But I’m glad you stopped by.',
       footer: 'Ginji / CoCo — Just being me.', footerTop: 'Back to top ↑', backToTop: 'Back to top',
       languageLabel: 'Display in English', languageHint: 'Chuyển sang tiếng Việt', languageAnnouncement: 'Switched to English.',
-      entryWelcome: 'Welcome to Ginji', entryEnter: 'TAP HERE — Enter Ginji’s website'
     }
   };
   const languageToggle = document.querySelector('.language-toggle');
-  const entryScreen = document.querySelector('.entry-screen');
-  const entryButton = document.querySelector('.entry-button');
   const backToTop = document.querySelector('.back-to-top');
   const header = document.querySelector('.site-header');
-  const hero = document.querySelector('.hero');
+  const overview = document.getElementById('overview');
   const starLayer = document.querySelector('.starlight');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let currentLanguage = 'vi';
+  const sectionLinks = Array.from(document.querySelectorAll('.navlinks a'));
+  const sections = sectionLinks.map(link => document.querySelector(link.hash));
+  let currentLanguage = 'vi', scrollPending = false, scrollRaf = null;
   const readPreference = key => { try { return localStorage.getItem(key); } catch { return null; } };
-  const savePreference = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Private browsing may block storage. */ } };
+  const savePreference = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Storage may be blocked. */ } };
   function applyLanguage(lang, announce = false) {
     currentLanguage = lang === 'en' ? 'en' : 'vi';
     const text = copy[currentLanguage];
     document.documentElement.lang = currentLanguage;
-    document.title = text.title;
     document.querySelector('meta[name="description"]').content = text.description;
     for (const el of document.querySelectorAll('[data-i18n]')) el.textContent = text[el.dataset.i18n];
     for (const el of document.querySelectorAll('[data-i18n-aria]')) el.setAttribute('aria-label', text[el.dataset.i18nAria]);
     for (const el of document.querySelectorAll('[data-i18n-alt]')) el.setAttribute('alt', text[el.dataset.i18nAlt]);
+    for (const el of document.querySelectorAll('[data-social]')) el.setAttribute('aria-label', el.dataset.social + ' — ' + text.newTab);
     languageToggle.setAttribute('aria-checked', String(currentLanguage === 'en'));
     languageToggle.setAttribute('aria-label', text.languageLabel);
     languageToggle.title = text.languageHint;
@@ -93,23 +87,21 @@
     applyLanguage(currentLanguage === 'vi' ? 'en' : 'vi', true);
     savePreference('ginji-language', currentLanguage);
   });
-  // Keep links ordinary anchors: navigation works even if JavaScript is unavailable.
-  let scrollPending = false;
-  const sectionLinks = Array.from(document.querySelectorAll('.navlinks a'));
-  const sections = sectionLinks.map(link => document.querySelector(link.hash));
+  function showNavigation() { header.classList.add('is-visible'); }
+  function headerClearance() { return header.offsetTop + header.offsetHeight + 24; }
   function updateScroll() {
     scrollPending = false;
     const y = window.scrollY;
-    const fadeDistance = Math.max(300, hero.offsetTop + hero.offsetHeight * .9);
-    const progress = Math.min(1, Math.max(0, y / fadeDistance));
-    starLayer.style.setProperty('--star-strength', (1 - .92 * progress).toFixed(3));
+    const progress = Math.min(1, Math.max(0, y / Math.max(300, overview.offsetHeight)));
+    starLayer.style.setProperty('--star-strength', (1 - .88 * progress).toFixed(3));
+    if (overview.getBoundingClientRect().bottom <= headerClearance() + 80) showNavigation();
     header.classList.toggle('is-scrolled', y > 24);
-    const visible = y >= window.innerHeight * 2;
+    const visible = y > window.innerHeight * 2;
     backToTop.classList.toggle('is-visible', visible);
     backToTop.setAttribute('aria-hidden', String(!visible));
     backToTop.tabIndex = visible ? 0 : -1;
-    let active = '';
-    for (const section of sections) if (section.getBoundingClientRect().top <= header.getBoundingClientRect().bottom + 80) active = section.id;
+    let active = 'overview';
+    for (const section of sections) if (section.getBoundingClientRect().top <= headerClearance() + 80) active = section.id;
     for (const link of sectionLinks) {
       if (link.hash === '#' + active) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
@@ -123,74 +115,68 @@
   window.addEventListener('scroll', scheduleScrollUpdate, { passive: true });
   window.addEventListener('resize', scheduleScrollUpdate, { passive: true });
   if ('ResizeObserver' in window) new ResizeObserver(scheduleScrollUpdate).observe(document.querySelector('main'));
-  backToTop.addEventListener('click', event => {
+  function cancelScroll() {
+    if (scrollRaf !== null) cancelAnimationFrame(scrollRaf);
+    scrollRaf = null;
+  }
+  function destination(target) {
+    const top = target === overview ? 0 : window.scrollY + target.getBoundingClientRect().top - headerClearance();
+    return Math.max(0, Math.min(top, document.documentElement.scrollHeight - window.innerHeight));
+  }
+  function scrollToSection(target) {
+    cancelScroll();
+    showNavigation();
+    const from = window.scrollY;
+    const duration = Math.min(1400, Math.max(550, 420 + Math.sqrt(Math.abs(destination(target) - from)) * 17));
+    const started = performance.now();
+    function finish() {
+      window.scrollTo({ top: destination(target), behavior: 'instant' });
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+      scrollRaf = null;
+    }
+    if (reducedMotion.matches) { finish(); return; }
+    function step(now) {
+      const t = Math.min(1, (now - started) / duration);
+      const eased = t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      window.scrollTo({ top: from + (destination(target) - from) * eased, behavior: 'instant' });
+      if (t < 1) scrollRaf = requestAnimationFrame(step);
+      else finish();
+    }
+    scrollRaf = requestAnimationFrame(step);
+  }
+  // Real anchors remain usable without JavaScript and support modified clicks.
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    const target = document.getElementById(link.hash.slice(1));
+    if (!target) return;
     event.preventDefault();
-    document.querySelector('.brand').focus({ preventScroll: true });
-    window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
-    history.replaceState(null, '', window.location.pathname + window.location.search);
+    history.pushState(null, '', link.hash);
+    scrollToSection(target);
   });
+  window.addEventListener('wheel', cancelScroll, { passive: true });
+  window.addEventListener('touchstart', cancelScroll, { passive: true });
+  window.addEventListener('keydown', event => {
+    if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Escape', 'Tab'].includes(event.key)) cancelScroll();
+  });
+  reducedMotion.addEventListener('change', cancelScroll);
+  window.addEventListener('popstate', cancelScroll);
   const storedLanguage = readPreference('ginji-language');
-  const initialLanguage = storedLanguage === 'vi' || storedLanguage === 'en' ? storedLanguage : (navigator.language || 'vi').toLowerCase().startsWith('vi') ? 'vi' : 'en';
-  applyLanguage(initialLanguage);
+  applyLanguage(storedLanguage === 'vi' || storedLanguage === 'en' ? storedLanguage : (navigator.language || 'vi').toLowerCase().startsWith('vi') ? 'vi' : 'en');
   languageToggle.hidden = false;
-
-  // Native modal keeps the loaded page inert and confines keyboard focus.
-  // Without JavaScript (or dialog support), the ordinary website stays accessible.
-  let entryClosing = false, entryTimer;
-  function finishEntry() {
-    window.clearTimeout(entryTimer);
-    if (!entryScreen.open) return;
-    entryScreen.close();
-    entryScreen.hidden = true;
-    document.documentElement.classList.remove('entry-open');
-    document.querySelector('.brand').focus({ preventScroll: true });
-    scheduleScrollUpdate();
+  // Observe individual reading blocks, keeping long content visible until fully out of view.
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+      for (const entry of entries) entry.target.classList.toggle('is-revealed', entry.isIntersecting);
+    }, { rootMargin: '24px 0px', threshold: 0 });
+    for (const el of document.querySelectorAll('.hero, .social-links, .section-heading, .about, .interests-head, .card, .palette, .gallery-intro, .gallery-item, .hello > div, .hello > .note')) {
+      const rect = el.getBoundingClientRect();
+      el.classList.toggle('is-revealed', rect.bottom >= -24 && rect.top <= window.innerHeight + 24);
+      el.classList.add('reveal');
+      revealObserver.observe(el);
+    }
   }
-  function dismissEntry() {
-    if (entryClosing) return;
-    entryClosing = true;
-    if (reducedMotion.matches) { finishEntry(); return; }
-    entryScreen.classList.add('is-leaving');
-    // Fallback also releases the modal if transitionend is interrupted.
-    entryTimer = window.setTimeout(finishEntry, 700);
-  }
-  entryButton.addEventListener('click', dismissEntry);
-  entryScreen.addEventListener('cancel', event => { event.preventDefault(); dismissEntry(); });
-  entryScreen.addEventListener('transitionend', event => {
-    if (event.target === entryScreen && event.propertyName === 'opacity' && entryClosing) finishEntry();
-  });
-  reducedMotion.addEventListener('change', () => {
-    if (reducedMotion.matches && entryClosing) finishEntry();
-  });
-  if (typeof entryScreen.showModal === 'function') {
-    entryScreen.hidden = false;
-    entryScreen.showModal();
-    document.documentElement.classList.add('entry-open');
-  }
-
-  // Retain the initial sparkle and shooting-star entrance from the previous design.
-  const welcome = document.getElementById('welcome-stars');
-  const introFragment = document.createDocumentFragment();
-  for (let i = 0; i < 32; i++) {
-    const star = document.createElement('span');
-    star.className = 'star'; star.textContent = i % 3 === 0 ? '✧' : '✦';
-    star.style.cssText = `--x:${(i * 37 + 5) % 100}%;--y:${(i * 29 + 3) % 100}%;--size:${8 + (i % 5) * 4}px;--delay:${(i % 7) * .11}s`;
-    introFragment.append(star);
-  }
-  for (let i = 0; i < 3; i++) {
-    const meteor = document.createElement('span'); meteor.className = 'meteor';
-    meteor.style.cssText = `--x:${12 + i * 30}%;--y:${5 + i * 15}%;--delay:${.2 + i * .65}s`;
-    introFragment.append(meteor);
-  }
-  welcome.append(introFragment);
-  let welcomeTimer;
-  function startWelcome() {
-    window.clearTimeout(welcomeTimer);
-    if (reducedMotion.matches) welcome.hidden = true;
-    else welcomeTimer = window.setTimeout(() => { welcome.hidden = true; }, 4500);
-  }
-  entryScreen.addEventListener('close', startWelcome, { once: true });
-  if (!entryScreen.open) startWelcome();
 
   const canvas = document.getElementById('star-canvas');
   const ctx = canvas.getContext('2d');
@@ -212,7 +198,7 @@
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     const count = width < 760 ? 58 : 108;
     if (stars.length !== count) stars = Array.from({ length: count }, makeStar);
-    if (reducedMotion.matches || entryScreen.open) drawFrame();
+    if (reducedMotion.matches) drawFrame();
   }
   // Cubic Bézier trajectories give each star a gentle sideways arc as it falls.
   function point(star, t, out) {
@@ -222,12 +208,12 @@
   }
   function drawFrame() {
     ctx.clearRect(0, 0, width, height);
-    const entry = reducedMotion.matches ? .7 : Math.min(1, .35 + elapsed / 4500);
+
     for (const star of stars) {
       const t = (elapsed / star.duration + star.phase) % 1;
       point(star, t, position);
       const p = position, edge = Math.min(1, t * 9, (1 - t) * 9);
-      const alpha = star.alpha * edge * (.72 + .28 * Math.sin(elapsed / 2100 + star.phase * 7)) * entry;
+      const alpha = star.alpha * edge * (.72 + .28 * Math.sin(elapsed / 2100 + star.phase * 7));
       ctx.strokeStyle = star.colour; ctx.fillStyle = star.colour;
       if (star.trail && !reducedMotion.matches) {
         let previousX = p.x, previousY = p.y;
@@ -248,7 +234,7 @@
   }
   function animate(now) {
     raf = null;
-    if (document.hidden || reducedMotion.matches || entryScreen.open) return;
+    if (document.hidden || reducedMotion.matches) return;
     // Milliseconds, not frame counts: identical speed at any display refresh rate.
     if (lastFrame !== null) elapsed += now - lastFrame;
     lastFrame = now;
@@ -258,11 +244,9 @@
   function syncMotion() {
     if (raf !== null) cancelAnimationFrame(raf);
     raf = null; lastFrame = null;
-    if (reducedMotion.matches) welcome.hidden = true;
     drawFrame();
-    if (!document.hidden && !reducedMotion.matches && !entryScreen.open) raf = requestAnimationFrame(animate);
+    if (!document.hidden && !reducedMotion.matches) raf = requestAnimationFrame(animate);
   }
-  entryScreen.addEventListener('close', syncMotion);
   document.addEventListener('visibilitychange', syncMotion);
   reducedMotion.addEventListener('change', syncMotion);
   window.addEventListener('resize', resizeCanvas, { passive: true });
