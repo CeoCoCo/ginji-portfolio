@@ -7,6 +7,9 @@
   <meta name="description" content="Ginji (CoCo) — sinh viên Luật, thích game, âm nhạc và những ngày trời âm u.">
   <meta name="theme-color" content="#f2f9ff">
   <link rel="icon" type="image/png" href="assets/ginji-favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
   <noscript><style>.site-header { opacity: 1; visibility: visible; pointer-events: auto; } #overview { padding-top: 150px; }</style></noscript>
@@ -30,12 +33,12 @@
   </header>
   <div class="wrap">
     <main id="main">
-      <section id="overview" class="overview" aria-labelledby="overview-title">
+      <section id="overview" class="overview" tabindex="-1" aria-labelledby="overview-title">
       <div class="hero">
         <div>
           <h1 id="overview-title">Ginji<span>.</span></h1>
           <p class="lead" data-i18n="heroLead">Hewwooo, mình là Ginji. Một “con céo” chill chill thích đi ngẩu. Chào mừng bạn đến với profile của mình nheee~</p>
-          <a class="button" href="#about"><span data-i18n="heroButton">Làm quen một chút</span><span aria-hidden="true">↗</span></a>
+          <a class="button" href="#about"><span data-i18n="heroButton">Làm quen một chút nhéee</span><span aria-hidden="true">↗</span></a>
         </div>
         <div class="portrait">
           <img src="assets/ginji-intro.png" width="1000" height="1000" fetchpriority="high" decoding="async" alt="Ginji, chiếc cáo trắng xanh với nụ cười tinh nghịch." data-i18n-alt="introAlt">
@@ -48,11 +51,12 @@
         <a href="https://x.com/Ginjifoxxo" target="_blank" rel="noopener noreferrer" aria-label="X — mở trong tab mới" data-social="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22H17l-4.9-7.4L5.6 22H2.4l8.2-9.5L.8 2h6.4l4.4 6.7L18.9 2ZM17.9 20h1.7L6.2 4H4.4z"/></svg><span>X</span></a>
         <a href="https://barq.app/@GinjiFoxxo" target="_blank" rel="noopener noreferrer" aria-label="BARQ! — mở trong tab mới" data-social="BARQ!"><span class="social-mark">BARQ!</span></a>
         <a href="https://bump.app/p/pBIETiTYpsSHB" target="_blank" rel="noopener noreferrer" aria-label="Bump — mở trong tab mới" data-social="Bump"><span class="social-mark">Bump</span></a>
+        <a href="https://t.me/ginji_thefoxxo" target="_blank" rel="noopener noreferrer" aria-label="Telegram — mở trong tab mới" data-social="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.8 3.2 18.6 20c-.2 1.2-.9 1.5-1.9.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.3L6 13.7l-4.8-1.5c-1-.3-1-1 .2-1.4L20.2 3c.9-.3 1.7.2 1.6.2Z"/></svg><span>Telegram</span></a>
       </nav>
       </section>
       <section id="about" class="about-section" aria-labelledby="about-title">
         <div class="section-grid">
-          <h2 class="section-heading" id="about-title"><span class="section-number">01</span><span data-i18n="aboutLabel">VỀ MÌNH</span></h2>
+          <h2 class="section-heading" id="about-title"><span data-i18n="aboutLabel">VỀ MÌNH</span></h2>
           <div class="about">
             <h3><span data-i18n="aboutHeadline1">Hơi ít nói lúc đầu.</span><br><em data-i18n="aboutHeadline2">Thân rồi thì… để xem.</em></h3>
             <p data-i18n="aboutP1">Bạn có thể gọi mình là Ginji, CoCo hoặc Ceo. Hiện tại mình đang học Luật, còn ngoài giờ học thì thường tìm đến game, âm nhạc và những khoảng thời gian được thảnh thơi một chút.</p>
@@ -71,7 +75,7 @@
       </section>
       <section id="fursona" class="fursona-section" aria-labelledby="fursona-title">
         <div class="section-grid">
-          <h2 class="section-heading" id="fursona-title"><span class="section-number">02</span><span data-i18n="fursonaLabel">FURSONA</span></h2>
+          <h2 class="section-heading" id="fursona-title"><span data-i18n="fursonaLabel">FURSONA</span></h2>
           <div class="about"><h3 data-i18n="fursonaHeadline">Ginji, phiên bản kitsune.</h3><p data-i18n="fursonaText">Một chiếc cáo với bộ lông trắng, những mảng xanh băng và điểm nhấn tím chàm. Ginji thường xuất hiện với hai chiếc đuôi — một phiên bản khác của mình trong thế giới furry.</p><div class="tags"><span class="tag">Kitsune</span><span class="tag" data-i18n="fursonaTails">Thường xuất hiện với 2 đuôi</span><span class="tag" data-i18n="fursonaMood">Chill & hơi rụt rè</span></div></div>
         </div>
         <div class="palette" aria-label="Bảng màu của Ginji" data-i18n-aria="paletteLabel">
@@ -81,14 +85,17 @@
           <div class="palette-chip"><span class="swatch" style="--swatch:#394473"></span><span data-i18n="indigo">Tím chàm</span><code>#394473</code></div>
           <div class="palette-chip"><span class="swatch" style="--swatch:#a3a2de"></span><span data-i18n="lavender">Tím nhạt</span><code>#A3A2DE</code></div>
         </div>
+        <figure class="refsheet-viewer" aria-label="Refsheet Ginji" data-i18n-aria="refViewer">
+          <div class="refsheet-toolbar"><strong data-i18n="refCaption">Refsheet nhân vật</strong><div class="ref-selector" role="group" aria-label="Chọn refsheet" data-i18n-aria="refSelector" hidden><button type="button" data-ref="a" aria-pressed="true">Ref. A</button><button type="button" data-ref="b" aria-pressed="false">Ref. B</button></div></div>
+          <a class="refsheet-image-link" href="assets/ginji-refsheet.png" target="_blank" rel="noopener noreferrer" aria-label="Mở refsheet Ginji đầy đủ trong tab mới" data-i18n-aria="refOpen"><img id="refsheet-image" src="assets/ginji-refsheet.png" width="2048" height="1502" loading="lazy" decoding="async" alt="Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế."></a>
+          <figcaption><span class="ref-current">Ref. A</span><a class="refsheet-full-link" href="assets/ginji-refsheet.png" target="_blank" rel="noopener noreferrer"><span data-i18n="refView">Xem ảnh đầy đủ</span><span aria-hidden="true">↗</span></a></figcaption>
+          <p class="sr-only" id="ref-announcement" aria-live="polite"></p>
+        </figure>
       </section>
       <section id="gallery" class="gallery-section" aria-labelledby="gallery-title">
-        <h2 class="section-heading" id="gallery-title"><span class="section-number">03</span><span data-i18n="galleryLabel">THƯ VIỆN</span></h2>
+        <h2 class="section-heading" id="gallery-title"><span data-i18n="galleryLabel">THƯ VIỆN</span></h2>
         <p class="gallery-intro" data-i18n="galleryTitle">Một chút về thế giới của Ginji.</p>
-        <figure class="gallery-item">
-          <a class="gallery-image-link" href="assets/ginji-refsheet.png" target="_blank" rel="noopener" aria-label="Mở refsheet Ginji đầy đủ trong tab mới" data-i18n-aria="galleryOpen"><img src="assets/ginji-refsheet.png" width="2048" height="1502" loading="lazy" decoding="async" alt="Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế." data-i18n-alt="galleryAlt"></a>
-          <figcaption><div><strong>Ginji</strong><span data-i18n="galleryCaption">Refsheet nhân vật</span></div><a href="assets/ginji-refsheet.png" target="_blank" rel="noopener"><span data-i18n="galleryView">Xem ảnh đầy đủ</span><span aria-hidden="true">↗</span></a></figcaption>
-        </figure>
+        <div class="gallery-empty"><span aria-hidden="true">✧</span><p data-i18n="galleryEmpty">Một góc dành cho những artwork sắp tới của Ginji.</p></div>
       </section>
       <section class="hello" aria-labelledby="hello-title">
         <div><p class="section-title" data-i18n="helloLabel">MỘT LỜI CHÀO</p><h2 id="hello-title"><span data-i18n="helloHeadline">Đừng ngại nói</span> <em>hi.</em></h2><p data-i18n="helloText">Nếu bạn cũng thích game, âm nhạc hay chỉ muốn trò chuyện một chút, có lẽ chúng mình sẽ có chuyện để kể.</p></div><p class="note" data-i18n="helloNote">Mình có thể hơi chậm mở lời. Nhưng rất vui khi bạn ghé qua.</p>

@@ -5,7 +5,7 @@
       description: 'Ginji (CoCo) — sinh viên Luật, thích game, âm nhạc và những ngày trời âm u.',
       skip: 'Đến nội dung chính', navigation: 'Điều hướng chính', home: 'Ginji — đầu trang',
       heroLead: 'Hewwooo, mình là Ginji. Một “con céo” chill chill thích đi ngẩu. Chào mừng bạn đến với profile của mình nheee~',
-      heroButton: 'Làm quen một chút',
+      heroButton: 'Làm quen một chút nhéee',
       navOverview: 'Tổng quan', navAbout: 'Về mình', navFursona: 'Fursona', navGallery: 'Thư viện',
       introAlt: 'Ginji, chiếc cáo trắng xanh với nụ cười tinh nghịch.', socialNav: 'Mạng xã hội', newTab: 'mở trong tab mới', fursonaLabel: 'FURSONA', galleryLabel: 'THƯ VIỆN',
       aboutLabel: 'VỀ MÌNH', aboutHeadline1: 'Hơi ít nói lúc đầu.', aboutHeadline2: 'Thân rồi thì… để xem.',
@@ -20,8 +20,9 @@
       fursonaText: 'Một chiếc cáo với bộ lông trắng, những mảng xanh băng và điểm nhấn tím chàm. Ginji thường xuất hiện với hai chiếc đuôi — một phiên bản khác của mình trong thế giới furry.',
       fursonaTails: 'Thường xuất hiện với 2 đuôi', fursonaMood: 'Chill & hơi rụt rè',
       paletteLabel: 'Bảng màu của Ginji', snow: 'Trắng tuyết', ice: 'Xanh băng', blueGrey: 'Xanh xám', indigo: 'Tím chàm', lavender: 'Tím nhạt',
-      galleryTitle: 'Một chút về thế giới của Ginji.', galleryCaption: 'Refsheet nhân vật', galleryView: 'Xem ảnh đầy đủ',
-      galleryOpen: 'Mở refsheet Ginji đầy đủ trong tab mới', galleryAlt: 'Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế.',
+      galleryTitle: 'Một chút về thế giới của Ginji.', refCaption: 'Refsheet nhân vật', refView: 'Xem ảnh đầy đủ',
+      refOpen: 'Mở refsheet Ginji đầy đủ trong tab mới', refAltA: 'Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế.',
+      refViewer: 'Refsheet Ginji', refSelector: 'Chọn refsheet', refAltB: 'Refsheet Ginji B: cáo trắng xanh với nhiều đuôi, bảng màu và các biểu cảm đeo kính.', refUnavailable: 'Ảnh này chưa khả dụng. Vẫn hiển thị refsheet hiện tại.', refChanged: 'Đang hiển thị', galleryEmpty: 'Một góc dành cho những artwork sắp tới của Ginji.',
       helloLabel: 'MỘT LỜI CHÀO', helloHeadline: 'Đừng ngại nói',
       helloText: 'Nếu bạn cũng thích game, âm nhạc hay chỉ muốn trò chuyện một chút, có lẽ chúng mình sẽ có chuyện để kể.',
       helloNote: 'Mình có thể hơi chậm mở lời. Nhưng rất vui khi bạn ghé qua.',
@@ -32,7 +33,7 @@
       description: 'Ginji (CoCo) — a law student into games, music and cloudy days.',
       skip: 'Skip to main content', navigation: 'Main navigation', home: 'Ginji — back to top',
       heroLead: 'Hewwooo, I’m Ginji — a chill lil fox who loves wandering around. Welcome to my profileee~',
-      heroButton: 'Get to know me',
+      heroButton: 'Let’s get to know each other~',
       navOverview: 'Overview', navAbout: 'About Me', navFursona: 'Fursona', navGallery: 'Gallery',
       introAlt: 'Ginji, a white and blue fox with a playful smile.', socialNav: 'Social links', newTab: 'opens in a new tab', fursonaLabel: 'FURSONA', galleryLabel: 'GALLERY',
       aboutLabel: 'ABOUT ME', aboutHeadline1: 'A little quiet at first.', aboutHeadline2: 'Once we’re friends… we’ll see.',
@@ -47,8 +48,9 @@
       fursonaText: 'A fox with snowy white fur, icy blue markings and indigo accents. Ginji usually appears with two tails — another version of me in the furry world.',
       fursonaTails: 'Usually seen with 2 tails', fursonaMood: 'Chill & a little shy',
       paletteLabel: 'Ginji’s colour palette', snow: 'Snow white', ice: 'Ice blue', blueGrey: 'Blue grey', indigo: 'Indigo', lavender: 'Lavender',
-      galleryTitle: 'A little of Ginji’s world.', galleryCaption: 'Character reference sheet', galleryView: 'View full image',
-      galleryOpen: 'Open Ginji’s full reference sheet in a new tab', galleryAlt: 'Ginji reference sheet: a white and blue kitsune with two tails, front and back views, and character design details.',
+      galleryTitle: 'A little of Ginji’s world.', refCaption: 'Character reference sheet', refView: 'View full image',
+      refOpen: 'Open Ginji’s full reference sheet in a new tab', refAltA: 'Ginji reference sheet: a white and blue kitsune with two tails, front and back views, and character design details.',
+      refViewer: 'Ginji reference sheets', refSelector: 'Choose a reference sheet', refAltB: 'Ginji reference sheet B: a white and blue fox with multiple tails, a colour palette and expressions wearing glasses.', refUnavailable: 'This image is unavailable. Keeping the current reference sheet.', refChanged: 'Showing', galleryEmpty: 'A little space for Ginji’s upcoming artwork.',
       helloLabel: 'A LITTLE HELLO', helloHeadline: 'Feel free to say',
       helloText: 'If you’re into games, music or just a little conversation, we might have a few stories to share.',
       helloNote: 'I might be slow to say the first word. But I’m glad you stopped by.',
@@ -81,12 +83,33 @@
     languageToggle.title = text.languageHint;
     backToTop.title = text.backToTop;
     if (announce) document.getElementById('language-announcement').textContent = text.languageAnnouncement;
+    updateRefLabels();
     scheduleScrollUpdate();
   }
   languageToggle.addEventListener('click', () => {
     applyLanguage(currentLanguage === 'vi' ? 'en' : 'vi', true);
     savePreference('ginji-language', currentLanguage);
   });
+  let profileLocked = false;
+  const gatedContent = Array.from(document.querySelectorAll('main > section:not(#overview), footer'));
+  const skipLink = document.querySelector('.skip-link');
+  function validHashTarget() { return document.getElementById(window.location.hash.slice(1)); }
+  function unlockProfile() {
+    if (!profileLocked) return;
+    profileLocked = false;
+    document.documentElement.classList.remove('profile-locked');
+    for (const el of gatedContent) el.inert = false;
+    skipLink.href = '#main';
+  }
+  // Keep a tall Hero internally scrollable on small screens, while the profile stays gated.
+  if (!validHashTarget() || validHashTarget() === overview) {
+    document.documentElement.style.setProperty('--scroll-gutter', (window.innerWidth - document.documentElement.clientWidth) + 'px');
+    profileLocked = true;
+    document.documentElement.classList.add('profile-locked');
+    for (const el of gatedContent) el.inert = true;
+    skipLink.href = '#overview';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
   function showNavigation() { header.classList.add('is-visible'); }
   function headerClearance() { return header.offsetTop + header.offsetHeight + 24; }
   function updateScroll() {
@@ -125,6 +148,7 @@
   }
   function scrollToSection(target) {
     cancelScroll();
+    if (profileLocked) return;
     showNavigation();
     const from = window.scrollY;
     const duration = Math.min(1400, Math.max(550, 420 + Math.sqrt(Math.abs(destination(target) - from)) * 17));
@@ -151,6 +175,10 @@
     if (!link || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     const target = document.getElementById(link.hash.slice(1));
     if (!target) return;
+    if (profileLocked) {
+      if (link.matches('.button')) unlockProfile();
+      else { event.preventDefault(); overview.focus({ preventScroll: true }); return; }
+    }
     event.preventDefault();
     history.pushState(null, '', link.hash);
     scrollToSection(target);
@@ -158,10 +186,82 @@
   window.addEventListener('wheel', cancelScroll, { passive: true });
   window.addEventListener('touchstart', cancelScroll, { passive: true });
   window.addEventListener('keydown', event => {
+    if (profileLocked && ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key) && !event.target.closest('button, input, textarea, select, [contenteditable="true"]')) {
+      event.preventDefault();
+      const down = ['ArrowDown', 'PageDown', ' ', 'End'].includes(event.key);
+      const amount = event.key === 'End' || event.key === 'Home' ? overview.scrollHeight : event.key.startsWith('Arrow') ? 48 : overview.clientHeight * .85;
+      overview.scrollBy({ top: (down ? 1 : -1) * amount, behavior: 'instant' });
+      return;
+    }
     if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Escape', 'Tab'].includes(event.key)) cancelScroll();
   });
   reducedMotion.addEventListener('change', cancelScroll);
   window.addEventListener('popstate', cancelScroll);
+  window.addEventListener('hashchange', () => {
+    const target = validHashTarget();
+    if (target && target !== overview) { unlockProfile(); scrollToSection(target); }
+  });
+  if (!profileLocked && validHashTarget()) requestAnimationFrame(() => scrollToSection(validHashTarget()));
+
+  const refViewer = document.querySelector('.refsheet-viewer');
+  const refImage = document.getElementById('refsheet-image');
+  const refButtons = Array.from(document.querySelectorAll('[data-ref]'));
+  const refs = { a: { src: 'assets/ginji-refsheet.png', alt: 'refAltA' }, b: { src: 'assets/ginji-refsheet-b.png', alt: 'refAltB' } };
+  let currentRef = 'a', refRequest = 0;
+  function updateRefLabels() {
+    refImage.alt = copy[currentLanguage][refs[currentRef].alt];
+  }
+  async function selectRef(key) {
+    if (key === currentRef) { ++refRequest; refViewer.classList.remove('is-switching'); return; }
+    const request = ++refRequest;
+    refViewer.classList.add('is-switching');
+    try {
+      // Decode first so a failed/missing asset never replaces the visible image.
+      const next = new Image();
+      next.src = refs[key].src;
+      await next.decode();
+      if (request !== refRequest) return;
+      currentRef = key;
+      refImage.src = next.src;
+      updateRefLabels();
+      for (const link of refViewer.querySelectorAll('a')) link.href = refs[key].src;
+      for (const button of refButtons) button.setAttribute('aria-pressed', String(button.dataset.ref === key));
+      refViewer.querySelector('.ref-current').textContent = 'Ref. ' + key.toUpperCase();
+      document.getElementById('ref-announcement').textContent = copy[currentLanguage].refChanged + ' Ref. ' + key.toUpperCase();
+    } catch {
+      if (request === refRequest) {
+        refButtons.find(button => button.dataset.ref === key).disabled = true;
+        document.getElementById('ref-announcement').textContent = copy[currentLanguage].refUnavailable;
+      }
+    } finally { if (request === refRequest) refViewer.classList.remove('is-switching'); }
+  }
+  for (const button of refButtons) button.addEventListener('click', () => selectRef(button.dataset.ref));
+  document.querySelector('.ref-selector').hidden = false;
+
+  const portrait = document.querySelector('.portrait');
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  let portraitFrame = null, tiltX = 0, tiltY = 0;
+  function resetPortrait() {
+    if (portraitFrame !== null) cancelAnimationFrame(portraitFrame);
+    portraitFrame = null;
+    portrait.style.removeProperty('--tilt-x'); portrait.style.removeProperty('--tilt-y');
+  }
+  portrait.addEventListener('pointermove', event => {
+    if (!finePointer.matches || reducedMotion.matches || event.pointerType !== 'mouse') return;
+    const rect = portrait.getBoundingClientRect();
+    tiltX = ( .5 - (event.clientY - rect.top) / rect.height) * 5;
+    tiltY = ((event.clientX - rect.left) / rect.width - .5) * 5;
+    if (portraitFrame !== null) return;
+    portraitFrame = requestAnimationFrame(() => {
+      portraitFrame = null;
+      portrait.style.setProperty('--tilt-x', tiltX.toFixed(2) + 'deg');
+      portrait.style.setProperty('--tilt-y', tiltY.toFixed(2) + 'deg');
+    });
+  });
+  portrait.addEventListener('pointerleave', resetPortrait);
+  reducedMotion.addEventListener('change', resetPortrait);
+  finePointer.addEventListener('change', resetPortrait);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) resetPortrait(); });
   const storedLanguage = readPreference('ginji-language');
   applyLanguage(storedLanguage === 'vi' || storedLanguage === 'en' ? storedLanguage : (navigator.language || 'vi').toLowerCase().startsWith('vi') ? 'vi' : 'en');
   languageToggle.hidden = false;
@@ -170,7 +270,7 @@
     const revealObserver = new IntersectionObserver(entries => {
       for (const entry of entries) entry.target.classList.toggle('is-revealed', entry.isIntersecting);
     }, { rootMargin: '24px 0px', threshold: 0 });
-    for (const el of document.querySelectorAll('.hero, .social-links, .section-heading, .about, .interests-head, .card, .palette, .gallery-intro, .gallery-item, .hello > div, .hello > .note')) {
+    for (const el of document.querySelectorAll('.hero, .social-links, .section-heading, .about, .interests-head, .card, .palette, .gallery-intro, .refsheet-viewer, .gallery-empty, .hello > div, .hello > .note')) {
       const rect = el.getBoundingClientRect();
       el.classList.toggle('is-revealed', rect.bottom >= -24 && rect.top <= window.innerHeight + 24);
       el.classList.add('reveal');
