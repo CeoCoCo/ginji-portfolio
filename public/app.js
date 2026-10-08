@@ -3,10 +3,9 @@
   const copy = {
     vi: {
       description: 'Ginji (CoCo) — sinh viên Luật, thích game, âm nhạc và những ngày trời âm u.',
-      skip: 'Đến nội dung chính', navigation: 'Điều hướng chính', home: 'Ginji — đầu trang',
+      skip: 'Đến nội dung chính', navigation: 'Điều hướng chính',
       heroLead: 'Hewwooo, mình là Ginji. Một “con céo” chill chill thích đi ngẩu. Chào mừng bạn đến với profile của mình nheee~',
-      heroButton: 'Làm quen một chút nhéee',
-      navOverview: 'Tổng quan', navAbout: 'Về mình', navFursona: 'Fursona', navGallery: 'Thư viện',
+      navAbout: 'Về mình', navFursona: 'Fursona', navGallery: 'Thư viện',
       introAlt: 'Ginji, chiếc cáo trắng xanh với nụ cười tinh nghịch.', socialNav: 'Mạng xã hội', newTab: 'mở trong tab mới', fursonaLabel: 'FURSONA', galleryLabel: 'THƯ VIỆN',
       aboutLabel: 'VỀ MÌNH', aboutHeadline1: 'Hơi ít nói lúc đầu.', aboutHeadline2: 'Thân rồi thì… để xem.',
       aboutP1: 'Bạn có thể gọi mình là Ginji, CoCo hoặc Ceo. Hiện tại mình đang học Luật, còn ngoài giờ học thì thường tìm đến game, âm nhạc và những khoảng thời gian được thảnh thơi một chút.',
@@ -31,10 +30,9 @@
     },
     en: {
       description: 'Ginji (CoCo) — a law student into games, music and cloudy days.',
-      skip: 'Skip to main content', navigation: 'Main navigation', home: 'Ginji — back to top',
+      skip: 'Skip to main content', navigation: 'Main navigation',
       heroLead: 'Hewwooo, I’m Ginji — a chill lil fox who loves wandering around. Welcome to my profileee~',
-      heroButton: 'Let’s get to know each other~',
-      navOverview: 'Overview', navAbout: 'About Me', navFursona: 'Fursona', navGallery: 'Gallery',
+      navAbout: 'About Me', navFursona: 'Fursona', navGallery: 'Gallery',
       introAlt: 'Ginji, a white and blue fox with a playful smile.', socialNav: 'Social links', newTab: 'opens in a new tab', fursonaLabel: 'FURSONA', galleryLabel: 'GALLERY',
       aboutLabel: 'ABOUT ME', aboutHeadline1: 'A little quiet at first.', aboutHeadline2: 'Once we’re friends… we’ll see.',
       aboutP1: 'You can call me Ginji, CoCo or Ceo. I’m currently studying law. Outside of class, you’ll usually find me playing games, listening to music or just taking things slow.',
@@ -66,6 +64,30 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const sectionLinks = Array.from(document.querySelectorAll('.navlinks a'));
   const sections = sectionLinks.map(link => document.querySelector(link.hash));
+  const navlinks = document.querySelector('.navlinks');
+  const navIndicator = document.querySelector('.nav-indicator');
+  let activeLink = null, navigationTarget = null, indicatorFrame = null;
+  function updateIndicator() {
+    indicatorFrame = null;
+    navIndicator.style.width = activeLink ? activeLink.offsetWidth + 'px' : '0px';
+    navIndicator.style.transform = 'translateX(' + (activeLink ? activeLink.offsetLeft : 0) + 'px)';
+    navIndicator.classList.toggle('is-visible', !!activeLink);
+  }
+  function scheduleIndicator() {
+    if (indicatorFrame === null) indicatorFrame = requestAnimationFrame(updateIndicator);
+  }
+  function setActiveSection(id) {
+    const next = sectionLinks.find(link => link.hash === '#' + id) || null;
+    if (next === activeLink) return;
+    activeLink = next;
+    for (const link of sectionLinks) {
+      if (link === activeLink) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+    scheduleIndicator();
+  }
+  if ('ResizeObserver' in window) new ResizeObserver(scheduleIndicator).observe(navlinks);
+  if (document.fonts) document.fonts.ready.then(scheduleIndicator);
   let currentLanguage = 'vi', scrollPending = false, scrollRaf = null;
   const readPreference = key => { try { return localStorage.getItem(key); } catch { return null; } };
   const savePreference = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Storage may be blocked. */ } };
@@ -84,32 +106,13 @@
     backToTop.title = text.backToTop;
     if (announce) document.getElementById('language-announcement').textContent = text.languageAnnouncement;
     updateRefLabels();
+    scheduleIndicator();
     scheduleScrollUpdate();
   }
   languageToggle.addEventListener('click', () => {
     applyLanguage(currentLanguage === 'vi' ? 'en' : 'vi', true);
     savePreference('ginji-language', currentLanguage);
   });
-  let profileLocked = false;
-  const gatedContent = Array.from(document.querySelectorAll('main > section:not(#overview), footer'));
-  const skipLink = document.querySelector('.skip-link');
-  function validHashTarget() { return document.getElementById(window.location.hash.slice(1)); }
-  function unlockProfile() {
-    if (!profileLocked) return;
-    profileLocked = false;
-    document.documentElement.classList.remove('profile-locked');
-    for (const el of gatedContent) el.inert = false;
-    skipLink.href = '#main';
-  }
-  // Keep a tall Hero internally scrollable on small screens, while the profile stays gated.
-  if (!validHashTarget() || validHashTarget() === overview) {
-    document.documentElement.style.setProperty('--scroll-gutter', (window.innerWidth - document.documentElement.clientWidth) + 'px');
-    profileLocked = true;
-    document.documentElement.classList.add('profile-locked');
-    for (const el of gatedContent) el.inert = true;
-    skipLink.href = '#overview';
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }
   function showNavigation() { header.classList.add('is-visible'); }
   function headerClearance() { return header.offsetTop + header.offsetHeight + 24; }
   function updateScroll() {
@@ -123,12 +126,9 @@
     backToTop.classList.toggle('is-visible', visible);
     backToTop.setAttribute('aria-hidden', String(!visible));
     backToTop.tabIndex = visible ? 0 : -1;
-    let active = 'overview';
+    let active = '';
     for (const section of sections) if (section.getBoundingClientRect().top <= headerClearance() + 80) active = section.id;
-    for (const link of sectionLinks) {
-      if (link.hash === '#' + active) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
-    }
+    setActiveSection(navigationTarget || active);
   }
   function scheduleScrollUpdate() {
     if (scrollPending) return;
@@ -136,11 +136,13 @@
     requestAnimationFrame(updateScroll);
   }
   window.addEventListener('scroll', scheduleScrollUpdate, { passive: true });
-  window.addEventListener('resize', scheduleScrollUpdate, { passive: true });
+  window.addEventListener('resize', () => { scheduleScrollUpdate(); scheduleIndicator(); }, { passive: true });
   if ('ResizeObserver' in window) new ResizeObserver(scheduleScrollUpdate).observe(document.querySelector('main'));
   function cancelScroll() {
     if (scrollRaf !== null) cancelAnimationFrame(scrollRaf);
     scrollRaf = null;
+    navigationTarget = null;
+    scheduleScrollUpdate();
   }
   function destination(target) {
     const top = target === overview ? 0 : window.scrollY + target.getBoundingClientRect().top - headerClearance();
@@ -148,8 +150,9 @@
   }
   function scrollToSection(target) {
     cancelScroll();
-    if (profileLocked) return;
     showNavigation();
+    navigationTarget = target.id;
+    setActiveSection(navigationTarget);
     const from = window.scrollY;
     const duration = Math.min(1400, Math.max(550, 420 + Math.sqrt(Math.abs(destination(target) - from)) * 17));
     const started = performance.now();
@@ -158,6 +161,8 @@
       target.setAttribute('tabindex', '-1');
       target.focus({ preventScroll: true });
       scrollRaf = null;
+      navigationTarget = null;
+      scheduleScrollUpdate();
     }
     if (reducedMotion.matches) { finish(); return; }
     function step(now) {
@@ -175,10 +180,6 @@
     if (!link || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     const target = document.getElementById(link.hash.slice(1));
     if (!target) return;
-    if (profileLocked) {
-      if (link.matches('.button')) unlockProfile();
-      else { event.preventDefault(); overview.focus({ preventScroll: true }); return; }
-    }
     event.preventDefault();
     history.pushState(null, '', link.hash);
     scrollToSection(target);
@@ -186,22 +187,16 @@
   window.addEventListener('wheel', cancelScroll, { passive: true });
   window.addEventListener('touchstart', cancelScroll, { passive: true });
   window.addEventListener('keydown', event => {
-    if (profileLocked && ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key) && !event.target.closest('button, input, textarea, select, [contenteditable="true"]')) {
-      event.preventDefault();
-      const down = ['ArrowDown', 'PageDown', ' ', 'End'].includes(event.key);
-      const amount = event.key === 'End' || event.key === 'Home' ? overview.scrollHeight : event.key.startsWith('Arrow') ? 48 : overview.clientHeight * .85;
-      overview.scrollBy({ top: (down ? 1 : -1) * amount, behavior: 'instant' });
-      return;
-    }
     if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Escape', 'Tab'].includes(event.key)) cancelScroll();
   });
   reducedMotion.addEventListener('change', cancelScroll);
   window.addEventListener('popstate', cancelScroll);
   window.addEventListener('hashchange', () => {
-    const target = validHashTarget();
-    if (target && target !== overview) { unlockProfile(); scrollToSection(target); }
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) scrollToSection(target);
   });
-  if (!profileLocked && validHashTarget()) requestAnimationFrame(() => scrollToSection(validHashTarget()));
+  const hashTarget = document.getElementById(location.hash.slice(1));
+  if (hashTarget) requestAnimationFrame(() => scrollToSection(hashTarget));
 
   const refViewer = document.querySelector('.refsheet-viewer');
   const refImage = document.getElementById('refsheet-image');
