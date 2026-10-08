@@ -6,6 +6,7 @@ Website cá nhân của Ginji (CoCo), viết bằng HTML, CSS và JavaScript thu
 
 - `public/index.html`: nội dung trang.
 - `public/styles.css`: giao diện và bố cục responsive.
+- `public/navigation-start.js`: xử lý reload về Hero trước khi trang render; deep link mới vẫn được giữ.
 - `public/app.js`: chuyển ngôn ngữ, ánh sao và tương tác khi cuộn.
 - `public/assets/`: ảnh và tài nguyên tĩnh.
 - `.github/workflows/pages.yml`: triển khai trực tiếp lên GitHub Pages.
@@ -18,6 +19,7 @@ Kiểm tra cú pháp JavaScript nếu có Node.js:
 
 ```sh
 node --check public/app.js
+node --check public/navigation-start.js
 ```
 
 ## GitHub Pages
@@ -35,6 +37,8 @@ Workflow kiểm tra cú pháp JavaScript, đóng gói riêng thư mục `public`
 CSS, JavaScript và ảnh dùng đường dẫn tương đối (`styles.css`, `app.js`, `assets/...`) nên hoạt động dưới `/ginji-portfolio/`. Khi thêm asset, tránh đường dẫn bắt đầu bằng `/` vì nó trỏ tới gốc tên miền thay vì thư mục repository.
 
 Mỗi lần push lên `main` sẽ cập nhật website. Chờ workflow thành công trước khi kiểm tra bản mới.
+
+Nguồn và cách xử lý logo social được ghi tại `public/assets/social/README.md`.
 
 ## Ngắt nền tảng triển khai cũ
 

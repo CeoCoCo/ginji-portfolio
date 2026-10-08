@@ -24,7 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Check JavaScript syntax
-        run: node --check public/app.js
+        run: |
+          node --check public/app.js
+          node --check public/navigation-start.js
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload static website

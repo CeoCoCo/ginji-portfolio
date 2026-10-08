@@ -113,14 +113,22 @@
     applyLanguage(currentLanguage === 'vi' ? 'en' : 'vi', true);
     savePreference('ginji-language', currentLanguage);
   });
-  function showNavigation() { header.classList.add('is-visible'); }
+  let navigationVisible = false;
+  function updateNavigation() {
+    const bottom = overview.getBoundingClientRect().bottom;
+    const threshold = headerClearance() + 80;
+    // A 32px band avoids toggling repeatedly at the Hero/About boundary.
+    if (!navigationVisible && bottom <= threshold - 16) navigationVisible = true;
+    else if (navigationVisible && bottom >= threshold + 16) navigationVisible = false;
+    header.classList.toggle('is-visible', navigationVisible);
+  }
   function headerClearance() { return header.offsetTop + header.offsetHeight + 24; }
   function updateScroll() {
     scrollPending = false;
     const y = window.scrollY;
     const progress = Math.min(1, Math.max(0, y / Math.max(300, overview.offsetHeight)));
     starLayer.style.setProperty('--star-strength', (1 - .88 * progress).toFixed(3));
-    if (overview.getBoundingClientRect().bottom <= headerClearance() + 80) showNavigation();
+    updateNavigation();
     header.classList.toggle('is-scrolled', y > 24);
     const visible = y > window.innerHeight * 2;
     backToTop.classList.toggle('is-visible', visible);
@@ -150,7 +158,6 @@
   }
   function scrollToSection(target) {
     cancelScroll();
-    showNavigation();
     navigationTarget = target.id;
     setActiveSection(navigationTarget);
     const from = window.scrollY;
