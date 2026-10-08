@@ -11,21 +11,19 @@
       aboutP1: 'Bạn có thể gọi mình là Ginji, CoCo hoặc Ceo. Hiện tại mình đang học Luật, còn ngoài giờ học thì thường tìm đến game, âm nhạc và những khoảng thời gian được thảnh thơi một chút.',
       aboutP2: 'Mình khá dễ tính, chỉ hơi thụ động khi bắt chuyện thôi. Nếu muốn làm quen, cứ chủ động chào mình nhé.',
       tagShy: 'Thân thiện, hơi rụt rè', tagWeather: 'Thích trời âm u', tagJapanese: 'Đang học tiếng Nhật',
-      interestsTitle: 'Mấy điều mình thích.', interestsLabel: 'NGOÀI GIỜ HỌC',
+      interestsTitle: 'Mấy điều mình thích.',
       gameTitle: 'Thêm một ván nữa.', gameText: 'Từ game âm nhạc đến những trận Guilty Gear Strive. Đôi khi chơi để thử thách bản thân, đôi khi chỉ để chill.', gameMeta: 'Game / Anji Mito',
       musicTitle: 'Nhạc hay, trời âm u.', musicText: 'Một playlist hợp tâm trạng và thời tiết hơi xám một chút. Vậy là đủ cho một khoảng nghỉ mình thích.', musicMeta: 'Âm nhạc / Những phút thảnh thơi',
       japaneseTitle: 'Từng chút tiếng Nhật.', japaneseText: 'Học thêm vài từ, hiểu thêm một câu. Mình thích cảm giác dần chạm đến một ngôn ngữ khác.', japaneseMeta: 'Ngôn ngữ / Từng bước nhỏ',
-      fursonaHeadline: 'Ginji, phiên bản kitsune.',
-      fursonaText: 'Một chiếc cáo với bộ lông trắng, những mảng xanh băng và điểm nhấn tím chàm. Ginji thường xuất hiện với hai chiếc đuôi — một phiên bản khác của mình trong thế giới furry.',
-      fursonaTails: 'Thường xuất hiện với 2 đuôi', fursonaMood: 'Chill & hơi rụt rè',
-      paletteLabel: 'Bảng màu của Ginji', snow: 'Trắng tuyết', ice: 'Xanh băng', blueGrey: 'Xanh xám', indigo: 'Tím chàm', lavender: 'Tím nhạt',
-      galleryTitle: 'Một chút về thế giới của Ginji.', refCaption: 'Refsheet nhân vật', refView: 'Xem ảnh đầy đủ',
-      refOpen: 'Mở refsheet Ginji đầy đủ trong tab mới', refAltA: 'Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế.',
+      fursonaHeadline: "Ginji - Kitsune 9 cái \"đui\"",
+      fursonaText: "Đúng vậy, bạn không có nghe nhầm đâu. Đó là một cậu cáo trắng chín đuôi, nhưng trong hình dạng thường ngày cậu ấy sẽ xuất hiện với hai chiếc đuôi, cũng chính là mascot của mình.",
+      galleryTitle: "Một chút thế giới nhỏ của mình :3", refCaption: 'Refsheet nhân vật', refView: 'Xem ảnh đầy đủ',
+      refAltA: 'Refsheet Ginji: kitsune trắng và xanh với hai đuôi, góc nhìn trước, sau và các chi tiết thiết kế.',
       refViewer: 'Refsheet Ginji', refSelector: 'Chọn refsheet', refAltB: 'Refsheet Ginji B: cáo trắng xanh với nhiều đuôi, bảng màu và các biểu cảm đeo kính.', refUnavailable: 'Ảnh này chưa khả dụng. Vẫn hiển thị refsheet hiện tại.', refChanged: 'Đang hiển thị', galleryEmpty: 'Một góc dành cho những artwork sắp tới của Ginji.',
       helloLabel: 'MỘT LỜI CHÀO', helloHeadline: 'Đừng ngại nói',
       helloText: 'Nếu bạn cũng thích game, âm nhạc hay chỉ muốn trò chuyện một chút, có lẽ chúng mình sẽ có chuyện để kể.',
       helloNote: 'Mình có thể hơi chậm mở lời. Nhưng rất vui khi bạn ghé qua.',
-      footer: 'Ginji / CoCo — Cứ thoải mái là mình.', footerTop: 'Lên đầu trang ↑', backToTop: 'Về đầu trang',
+      backToTop: 'Về đầu trang',
       languageLabel: 'Hiển thị bằng tiếng Anh', languageHint: 'Switch to English', languageAnnouncement: 'Đã chuyển sang tiếng Việt.',
     },
     en: {
@@ -38,21 +36,19 @@
       aboutP1: 'You can call me Ginji, CoCo or Ceo. I’m currently studying law. Outside of class, you’ll usually find me playing games, listening to music or just taking things slow.',
       aboutP2: 'I’m pretty easygoing, just not always the first to start a conversation. Feel free to say hi if you’d like to get to know me.',
       tagShy: 'Friendly, but shy', tagWeather: 'Cloudy-day enjoyer', tagJapanese: 'Learning Japanese',
-      interestsTitle: 'A few things I like.', interestsLabel: 'OUTSIDE OF CLASS',
+      interestsTitle: 'A few things I like.',
       gameTitle: 'Just one more round.', gameText: 'From rhythm games to Guilty Gear Strive matches. Sometimes I’m up for a challenge; sometimes I just want to chill.', gameMeta: 'Games / Anji Mito',
       musicTitle: 'Good music, grey skies.', musicText: 'A playlist that fits the mood and a slightly overcast sky. That’s my kind of little break.', musicMeta: 'Music / Slow moments',
       japaneseTitle: 'Japanese, bit by bit.', japaneseText: 'A few more words, one more sentence understood. I like the feeling of slowly finding my way into another language.', japaneseMeta: 'Language / Small steps',
-      fursonaHeadline: 'Ginji, the kitsune version.',
-      fursonaText: 'A fox with snowy white fur, icy blue markings and indigo accents. Ginji usually appears with two tails — another version of me in the furry world.',
-      fursonaTails: 'Usually seen with 2 tails', fursonaMood: 'Chill & a little shy',
-      paletteLabel: 'Ginji’s colour palette', snow: 'Snow white', ice: 'Ice blue', blueGrey: 'Blue grey', indigo: 'Indigo', lavender: 'Lavender',
-      galleryTitle: 'A little of Ginji’s world.', refCaption: 'Character reference sheet', refView: 'View full image',
-      refOpen: 'Open Ginji’s full reference sheet in a new tab', refAltA: 'Ginji reference sheet: a white and blue kitsune with two tails, front and back views, and character design details.',
+      fursonaHeadline: "Ginji - a Kitsune with 9 lil' tails",
+      fursonaText: "Yep, you heard that right. He's a white nine-tailed fox, but in his everyday form he usually appears with just two tails — and he's also my mascot.",
+      galleryTitle: "A little world of my own :3", refCaption: 'Character reference sheet', refView: 'View full image',
+      refAltA: 'Ginji reference sheet: a white and blue kitsune with two tails, front and back views, and character design details.',
       refViewer: 'Ginji reference sheets', refSelector: 'Choose a reference sheet', refAltB: 'Ginji reference sheet B: a white and blue fox with multiple tails, a colour palette and expressions wearing glasses.', refUnavailable: 'This image is unavailable. Keeping the current reference sheet.', refChanged: 'Showing', galleryEmpty: 'A little space for Ginji’s upcoming artwork.',
       helloLabel: 'A LITTLE HELLO', helloHeadline: 'Feel free to say',
       helloText: 'If you’re into games, music or just a little conversation, we might have a few stories to share.',
       helloNote: 'I might be slow to say the first word. But I’m glad you stopped by.',
-      footer: 'Ginji / CoCo — Just being me.', footerTop: 'Back to top ↑', backToTop: 'Back to top',
+      backToTop: 'Back to top',
       languageLabel: 'Display in English', languageHint: 'Chuyển sang tiếng Việt', languageAnnouncement: 'Switched to English.',
     }
   };
@@ -87,7 +83,7 @@
     scheduleIndicator();
   }
   if ('ResizeObserver' in window) new ResizeObserver(scheduleIndicator).observe(navlinks);
-  if (document.fonts) document.fonts.ready.then(scheduleIndicator);
+  if (document.fonts) document.fonts.ready.then(() => { reserveLanguageSpace(true); scheduleIndicator(); });
   let currentLanguage = 'vi', scrollPending = false, scrollRaf = null;
   const readPreference = key => { try { return localStorage.getItem(key); } catch { return null; } };
   const savePreference = (key, value) => { try { localStorage.setItem(key, value); } catch { /* Storage may be blocked. */ } };
@@ -109,9 +105,75 @@
     scheduleIndicator();
     scheduleScrollUpdate();
   }
-  languageToggle.addEventListener('click', () => {
-    applyLanguage(currentLanguage === 'vi' ? 'en' : 'vi', true);
+  // Reserve the taller translation at the current width, without animating layout.
+  // Measure hidden copies; images, canvas and live text are never moved or faded.
+  let languageLayoutWidth = 0, languageLayoutFrame = null;
+  function reserveLanguageSpace(force = false) {
+    const width = document.querySelector('main').clientWidth;
+    if (!force && width === languageLayoutWidth) return;
+    languageLayoutWidth = width;
+    const blocks = document.querySelectorAll('main h2, main h3, main h4, main p:not(.sr-only), main small, .tags, .refsheet-toolbar');
+    for (const block of blocks) {
+      if (!block.matches('[data-i18n]') && !block.querySelector('[data-i18n]')) continue;
+      block.style.minHeight = '';
+      const clone = block.cloneNode(true);
+      clone.removeAttribute('id');
+      for (const el of clone.querySelectorAll('[id]')) el.removeAttribute('id');
+      clone.setAttribute('aria-hidden', 'true');
+      clone.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;transform:none;transition:none;margin:0;min-height:0;height:auto;width:' + block.getBoundingClientRect().width + 'px';
+      block.parentElement.appendChild(clone);
+      let height = 0;
+      const texts = clone.matches('[data-i18n]') ? [clone] : Array.from(clone.querySelectorAll('[data-i18n]'));
+      for (const lang of ['vi', 'en']) {
+        for (const el of texts) el.textContent = copy[lang][el.dataset.i18n];
+        height = Math.max(height, clone.getBoundingClientRect().height);
+      }
+      clone.remove();
+      block.style.minHeight = Math.ceil(height) + 'px';
+    }
+  }
+  function scheduleLanguageLayout() {
+    if (languageLayoutFrame !== null) return;
+    languageLayoutFrame = requestAnimationFrame(() => {
+      languageLayoutFrame = null;
+      reserveLanguageSpace();
+      scheduleIndicator();
+    });
+  }
+  let languageRequest = 0, desiredLanguage = currentLanguage, textAnimations = [];
+  function cancelTextAnimations() {
+    for (const animation of textAnimations) animation.cancel();
+    textAnimations = [];
+  }
+  async function changeLanguage(lang) {
+    const request = ++languageRequest;
+    desiredLanguage = lang;
+    cancelTextAnimations();
+    cancelScroll();
+    const texts = Array.from(document.querySelectorAll('[data-i18n]')).filter(el => {
+      const rect = el.getBoundingClientRect();
+      return rect.bottom > 0 && rect.top < window.innerHeight && getComputedStyle(el).visibility !== 'hidden';
+    });
+    const canAnimate = !reducedMotion.matches && typeof Element.prototype.animate === 'function';
+    const fade = (from, to) => {
+      textAnimations = texts.map(el => el.animate([{ opacity: from }, { opacity: to }], {
+        duration: 170, easing: 'cubic-bezier(.22,.61,.36,1)', fill: 'forwards'
+      }));
+      return Promise.all(textAnimations.map(animation => animation.finished.catch(() => {})));
+    };
+    if (canAnimate) await fade(1, .42);
+    if (request !== languageRequest) return;
+    const y = window.scrollY;
+    applyLanguage(lang, true);
     savePreference('ginji-language', currentLanguage);
+    window.scrollTo({ top: y, behavior: 'instant' });
+    cancelTextAnimations();
+    if (canAnimate && !reducedMotion.matches) await fade(.42, 1);
+    if (request === languageRequest) cancelTextAnimations();
+  }
+  languageToggle.addEventListener('click', () => changeLanguage(desiredLanguage === 'vi' ? 'en' : 'vi'));
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches) changeLanguage(desiredLanguage);
   });
   let navigationVisible = false;
   function updateNavigation() {
@@ -144,7 +206,7 @@
     requestAnimationFrame(updateScroll);
   }
   window.addEventListener('scroll', scheduleScrollUpdate, { passive: true });
-  window.addEventListener('resize', () => { scheduleScrollUpdate(); scheduleIndicator(); }, { passive: true });
+  window.addEventListener('resize', () => { scheduleScrollUpdate(); scheduleIndicator(); scheduleLanguageLayout(); }, { passive: true });
   if ('ResizeObserver' in window) new ResizeObserver(scheduleScrollUpdate).observe(document.querySelector('main'));
   function cancelScroll() {
     if (scrollRaf !== null) cancelAnimationFrame(scrollRaf);
@@ -207,27 +269,50 @@
 
   const refViewer = document.querySelector('.refsheet-viewer');
   const refImage = document.getElementById('refsheet-image');
+  const refFullLink = document.querySelector('.refsheet-full-link');
+  const refSelector = document.querySelector('.ref-selector');
+  const refIndicator = document.querySelector('.ref-indicator');
   const refButtons = Array.from(document.querySelectorAll('[data-ref]'));
   const refs = { a: { src: 'assets/ginji-refsheet.png', alt: 'refAltA' }, b: { src: 'assets/ginji-refsheet-b.png', alt: 'refAltB' } };
   let currentRef = 'a', refRequest = 0;
   function updateRefLabels() {
     refImage.alt = copy[currentLanguage][refs[currentRef].alt];
   }
+  function updateRefIndicator() {
+    const button = refButtons.find(el => el.dataset.ref === currentRef);
+    refIndicator.style.width = button.offsetWidth + 'px';
+    refIndicator.style.transform = 'translateX(' + (button.offsetLeft - 4) + 'px)';
+  }
+  function waitForRefFade() {
+    if (reducedMotion.matches) return Promise.resolve();
+    return new Promise(resolve => {
+      const timer = setTimeout(finish, 160);
+      function finish() {
+        clearTimeout(timer);
+        reducedMotion.removeEventListener('change', finish);
+        resolve();
+      }
+      reducedMotion.addEventListener('change', finish, { once: true });
+    });
+  }
   async function selectRef(key) {
-    if (key === currentRef) { ++refRequest; refViewer.classList.remove('is-switching'); return; }
     const request = ++refRequest;
-    refViewer.classList.add('is-switching');
+    if (key === currentRef) { refViewer.classList.remove('is-switching'); return; }
     try {
-      // Decode first so a failed/missing asset never replaces the visible image.
+      // Decode before fading; a failed image never blanks or replaces the viewer.
       const next = new Image();
       next.src = refs[key].src;
       await next.decode();
       if (request !== refRequest) return;
+      refViewer.classList.add('is-switching');
+      await waitForRefFade();
+      if (request !== refRequest) return;
       currentRef = key;
       refImage.src = next.src;
       updateRefLabels();
-      for (const link of refViewer.querySelectorAll('a')) link.href = refs[key].src;
+      refFullLink.href = refs[key].src;
       for (const button of refButtons) button.setAttribute('aria-pressed', String(button.dataset.ref === key));
+      updateRefIndicator();
       refViewer.querySelector('.ref-current').textContent = 'Ref. ' + key.toUpperCase();
       document.getElementById('ref-announcement').textContent = copy[currentLanguage].refChanged + ' Ref. ' + key.toUpperCase();
     } catch {
@@ -238,7 +323,9 @@
     } finally { if (request === refRequest) refViewer.classList.remove('is-switching'); }
   }
   for (const button of refButtons) button.addEventListener('click', () => selectRef(button.dataset.ref));
-  document.querySelector('.ref-selector').hidden = false;
+  refSelector.hidden = false;
+  requestAnimationFrame(updateRefIndicator);
+  if ('ResizeObserver' in window) new ResizeObserver(updateRefIndicator).observe(refSelector);
 
   const portrait = document.querySelector('.portrait');
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
@@ -266,13 +353,15 @@
   document.addEventListener('visibilitychange', () => { if (document.hidden) resetPortrait(); });
   const storedLanguage = readPreference('ginji-language');
   applyLanguage(storedLanguage === 'vi' || storedLanguage === 'en' ? storedLanguage : (navigator.language || 'vi').toLowerCase().startsWith('vi') ? 'vi' : 'en');
+  desiredLanguage = currentLanguage;
+  reserveLanguageSpace(true);
   languageToggle.hidden = false;
   // Observe individual reading blocks, keeping long content visible until fully out of view.
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver(entries => {
       for (const entry of entries) entry.target.classList.toggle('is-revealed', entry.isIntersecting);
     }, { rootMargin: '24px 0px', threshold: 0 });
-    for (const el of document.querySelectorAll('.hero, .social-links, .section-heading, .about, .interests-head, .card, .palette, .gallery-intro, .refsheet-viewer, .gallery-empty, .hello > div, .hello > .note')) {
+    for (const el of document.querySelectorAll('.hero, .social-links, .section-heading, .about, .interests-head, .card, .gallery-intro, .refsheet-viewer, .gallery-empty, .hello > div, .hello > .note')) {
       const rect = el.getBoundingClientRect();
       el.classList.toggle('is-revealed', rect.bottom >= -24 && rect.top <= window.innerHeight + 24);
       el.classList.add('reveal');
